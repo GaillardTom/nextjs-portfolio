@@ -5,6 +5,11 @@ export default {
   content: ['./app/**/*.{ts,tsx}', './content/**/*.mdx', './public/**/*.svg'],
   theme: {
     extend: {
+      animation: {
+        
+
+
+      },
       fontFamily: {
         // sans: ['var(--font-geist-sans)'],
         // mono: ['var(--font-geist-mono)'],

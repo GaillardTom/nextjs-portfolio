@@ -5,7 +5,7 @@ import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'Tom\'s Blog',
   description: 'Read my thoughts on software development, design, and more.',
 };
 

@@ -137,3 +137,64 @@ table {
 .title {
   text-wrap: balance;
 }
+
+
+.card {
+  border: 1px solid #7574745b;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+  justify-content: center;
+}
+
+.card-text {
+  margin-bottom: 10px;
+  color: rgb(177, 173, 173);
+}
+
+.btn {
+  background-color: #505D43;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  animation: riseAndSway 14s ease-in-out infinite;
+  border-radius: 50%;
+  will-change: transform;
+  z-index: -1;
+}
+
+@keyframes riseAndSway {
+  0% {
+    transform: translate(0,0);
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  50% {
+    transform: translate(5vw, -50vh);
+  }
+  75% {
+    transform: translate(-3vw, -90vh);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0vw, -110vh);
+    opacity: 0.2;
+  }
+}
