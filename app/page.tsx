@@ -21,7 +21,7 @@ export default function Page() {
         <div className="flex flex-col ">
         <h1 className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
         <p className="prose prose-neutral dark:prose-invert text-lg mb-4 font-large font-semibold">
-          Hey I'm <bold>Tom, a developer and a cyber security </bold> enthusiast.
+          Hey I'm Tom, a developer and a cyber security enthusiast.
         </p>
         <p className="prose prose-neutral dark:prose-invert mr-2"> I love to participate in CTFs and hackathons during my freetime and am always ready to collaborate! I am currently working for the Canadian Army Reserve as a cybersecurity operator. There I had the opportunity to participate in a SOC and hone my skills with various CTF and Red vs Blue exercices.</p>
         </div>
