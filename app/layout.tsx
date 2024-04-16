@@ -8,17 +8,17 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leerob.io'),
+  metadataBase: new URL('https://nextjs-portfolio-chi-ruby.vercel.app'),
   title: {
-    default: 'Lee Robinson',
-    template: '%s | Lee Robinson',
+    default: 'Tom Gaillard',
+    template: '%s | Tom Gaillard',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Developer.',
   openGraph: {
-    title: 'Lee Robinson',
+    title: 'Tom Gaillard',
     description: 'Developer, writer, and creator.',
-    url: 'https://leerob.io',
-    siteName: 'Lee Robinson',
+    url: 'https://nextjs-portfolio-chi-ruby.vercel.app',
+    siteName: 'Tom Gaillard',
     locale: 'en_US',
     type: 'website',
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'Lee Robinson',
+    title: 'Tom Gaillard',
     card: 'summary_large_image',
   },
   verification: {
