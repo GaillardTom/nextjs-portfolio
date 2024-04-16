@@ -7,7 +7,7 @@ export default function Page() {
     <section>
       <div>
         <Bubble image="/aws_logo.jpg" />
-        <Bubble image="/TS.png" />
+        <Bubble image="/images/TS.png" />
         <Bubble image="https://www.mongodb.com/favicon.ico" />
         <Bubble image="https://trpc.io/img/logo.svg" />
         <Bubble image="https://nextjs.org/static/favicon/favicon-32x32.png" />
