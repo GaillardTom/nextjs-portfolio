@@ -8,10 +8,10 @@ export default function Page() {
     // Add your projects here
     { title: 'Wardriving', 
     description: 'Webapp to show Wi-Fi networks from a kismet scan on a map. Can also perform search and filter certain types of network', 
-    image: '/wardriving.png',
+    image: '/wardriving.jpg',
     source: 'https://github.com/GaillardTom/Wardriving',},
     { title: 'Orientation Site', description: 'Webapp to get the educational requirements based on a given job, using data from the O*NET database',
-     image: '/orientationSite.png',
+     image: '/orientationSite.jpg',
      link: 'https://orientation-site.vercel.app/',
      source: 'https://github.com/GaillardTom/OrientationSite'},
      {title:'MakeUoT2022 Hackathon', description: 'First Hackathon ever! First time experiencing with RPI\'s GPIO. Project made in 36h to throw back a ball and count the number of times you put it in the net ', image: '/MakeUoT2022.jpg', link: 'https://devpost.com/software/makeuoftproject2022', source: 'https://github.com/GaillardTom/MakeUofTProject2022'},
