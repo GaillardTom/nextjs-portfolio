@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 import {AnimatePresence} from 'framer-motion'
-import Transition from './Transition';
 
 // import Image from 'next/image';
 
