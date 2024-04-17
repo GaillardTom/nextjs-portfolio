@@ -280,7 +280,3 @@ table {
 }
 
 
-
-body {
-  @apply scroll-smooth;
-}
