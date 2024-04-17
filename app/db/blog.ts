@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 type Metadata = {
-  tags: any;
+  tags?: any;
   title: string;
   publishedAt: string;
   summary: string;
