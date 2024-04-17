@@ -156,7 +156,7 @@ table {
 }
 
 .card-text {
-  margin-bottom: 10px;
+  /* margin-bottom: 20%; */
   color: rgb(177, 173, 173);
 }
 
@@ -197,4 +197,35 @@ table {
     transform: translate(0vw, -110vh);
     opacity: 0.2;
   }
+}
+
+
+
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-card h2 {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.project-card p {
+  font-size: 16px;
+  color: #666;
 }

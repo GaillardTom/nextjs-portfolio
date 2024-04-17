@@ -1,5 +1,5 @@
 import Link from 'next/link';
-// import { Suspense } from 'react';
+import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
@@ -7,6 +7,7 @@ import { getBlogPosts } from 'app/db/blog';
 export const metadata = {
   title: 'Tom\'s Blog',
   description: 'Read my thoughts on software development, design, and more.',
+  tags: 'blog; software; cybersecurity; design',
 };
 
 export default function BlogPage() {
@@ -14,7 +15,7 @@ export default function BlogPage() {
 
   return (
     <section>
-      <h1 className="font-medium text-2xl mb-8 tracking-tighter">
+      <h1 className="font-bold text-2xl mb-8 tracking-tighter">
         read my blog
       </h1>
       {allBlogs
@@ -27,20 +28,38 @@ export default function BlogPage() {
           return 1;
         })
         .map((post) => (
+          <div className="flex flex-row justify-between border-b mt-3 hover:translate-y-1">
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
+            className="flex flex-col space-y-1 mb-3 rounded-full"
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col">
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
                 {post.metadata.title}
               </p>
-              {/* <Suspense fallback={<p className="h-6" />}>
+              
+                </div>
+
+          
+          {post.metadata.tags &&
+                <div className="flex flex-row space-x-2  mb-5 ">
+                  {post.metadata.tags.split(";").map((tag: string) => (
+                    <h1
+                      key={tag}
+                      className="flex justify-center text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-24"
+                    >
+                      {tag}
+                    </h1>
+                  ))}
+              
+            </div>}
+            <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />
-              </Suspense> */}
+              </Suspense>
+            </Link>
             </div>
-          </Link>
+            
         ))}
     </section>
   );
