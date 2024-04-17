@@ -28,13 +28,14 @@ export default function BlogPage() {
           return 1;
         })
         .map((post) => (
-          <div className="flex flex-row justify-between border-b mt-3 hover:translate-y-1">
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-3 rounded-full"
+            className="flex flex-col space-y-1 mb-3 rounded-full w-full"
             href={`/blog/${post.slug}`}
           >
-            <div className="w-full flex flex-col">
+          <div className="flex flex-row justify-between border-b mt-3 hover:translate-y-1">
+          
+            <div className=" flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
                 {post.metadata.title}
               </p>
@@ -43,7 +44,7 @@ export default function BlogPage() {
 
           
           {post.metadata.tags &&
-                <div className="flex flex-row space-x-2  mb-5 ">
+                <div className="flex flex-col md:flex-row space-x-2  mb-5 ">
                   {post.metadata.tags.split(";").map((tag: string) => (
                     <h1
                       key={tag}
@@ -57,9 +58,9 @@ export default function BlogPage() {
             <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />
               </Suspense>
-            </Link>
             </div>
             
+            </Link>
         ))}
     </section>
   );
