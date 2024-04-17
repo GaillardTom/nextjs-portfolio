@@ -1,10 +1,17 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import Bubble from './bubble';
+import {motion, useScroll, AnimatePresence} from 'framer-motion';
 export default function Page() {
+
+  const {scrollYProgress} = useScroll();
 
   return (
     <section>
+
+      <div className="scroll-watcher">
+      </div >
       <div>
         <Bubble image="/aws_logo.jpg" />
         <Bubble image="/images/TS.png" />
@@ -30,9 +37,9 @@ export default function Page() {
       {/* Add more bubbles as needed */}
       </div>
       <div className="flex flex-row sm:justify-between">
-
         <div className="flex flex-col ">
-        <h1 className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
+        <h1
+        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
         <p className="prose prose-neutral dark:prose-invert text-lg mb-4 font-large font-semibold">
           Hey I'm Tom, a developer and a cyber security enthusiast.
         </p>
@@ -163,7 +170,6 @@ export default function Page() {
 
       </div>
 
-        
     </section>
   );
 }

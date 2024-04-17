@@ -4,11 +4,18 @@ import typography from '@tailwindcss/typography';
 export default {
   content: ['./app/**/*.{ts,tsx}', './content/**/*.mdx', './public/**/*.svg'],
   theme: {
-    extend: {
+    extend: 
+    {
+      keyframes:{
+
+      },
       animation: {
         
 
 
+      },
+      screens: {
+        'scroll-behavior': {'raw': 'scroll-behavior'},
       },
       fontFamily: {
         // sans: ['var(--font-geist-sans)'],
