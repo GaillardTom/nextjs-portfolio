@@ -14,18 +14,18 @@ export function Footer() {
     const [visible, setVisible] = useState(false);
 
   return (
-    <aside className="-mr-[45px] sm:fixed relative bottom-0  sm:right-4 tracking-tight">
-      <div className="lg:sticky sm:bot-15 lg:bot-20 sm:w-48 sm:h-64 lg:w-64">
+    <aside className="-mr-[45px] md:fixed relative bottom-0  md:right-4 tracking-tight">
+      <div className="lg:sticky md:bot-15 lg:bot-20 md:w-48 md:h-64 lg:w-64">
 
         <nav
-          className=" items-start px-0 pb-0  rounded-lg sm:overflow-auto sm:relative"
+          className=" items-start px-0 pb-0  rounded-lg md:overflow-auto md:relative"
           id="nav"
         >
 
-<div className="flex flex-col-reverse space-x-0 group mt-16 sm:h-64 sm:w-64">
+<div className="flex flex-col-reverse space-x-0 group mt-16 md:h-64 md:w-64">
 
 
-        <h1 className="sm:collapse prose-headings visible text-center item-center  align-middle justify-center text-xl font-semibold mb-5 mt-6">Contacts</h1>
+        <h1 className="md:collapse prose-headings visible text-center item-center  align-middle justify-center text-xl font-semibold mb-5 mt-6">Contacts</h1>
     <button onClick={() => setVisible(!visible)} className="z-1 group border-gray-600 border-solid border-2 text-lg text-center footer-circle align-middle items-center content-center self-center justify-center">
 
                 <div className="flex flex-col">
@@ -33,7 +33,7 @@ export function Footer() {
 
                     
                 <Image width={75} height={75} alt="Contacts" src="/images/address-book.png" className='group-hover:animate-pulse' />
-                {/* <h1 className="text-sm prose prose-neutral dark:prose-invert group-hover:animate-pulse font-bold">Contacts</h1> */}
+                {/* <h1 className="text-md prose prose-neutral dark:prose-invert group-hover:animate-pulse font-bold">Contacts</h1> */}
                 </div> 
             </button>
 
