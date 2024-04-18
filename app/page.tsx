@@ -10,9 +10,7 @@ export default function Page() {
   return (
     <section>
 
-      <div className="scroll-watcher">
-      </div >
-      <div>
+      <div className='overscroll-contain'>
         <Bubble image="/aws_logo.jpg" />
         <Bubble image="/images/TS.png" />
         <Bubble image="https://www.mongodb.com/favicon.ico" />
@@ -152,7 +150,7 @@ export default function Page() {
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/montcalm_logo.jpg"/>
               <div className="flex flex-col justify-center">
               <h5 className="card-title h-3">Montcalm's Highschool</h5>
-                  <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> Sept 2019 - Dec 2023 </p>
+                  <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> Sept 2015 - May 2019 </p>
               </div>
             </div>
 

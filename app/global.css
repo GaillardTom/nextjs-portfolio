@@ -248,6 +248,23 @@ table {
 
 }
 
+.footer-circle { 
+ display: flex;
+ height: 125px;
+ width: 125px;
+ border-radius: 100px;
+ color: rgba(231, 227, 227, 0.932);
+ /* background: #494949a6; */
+ margin: auto;
+}
+
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .project-card-animation {
@@ -262,6 +279,9 @@ table {
   
   }
 }
+
+
+/* For Animation keyframes */
 @keyframes scroll-watcher {
   0% {
     transform: scale(0, 1);
@@ -277,6 +297,18 @@ table {
 	50% {
 		transform: scale(1, .025);
 	}
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(360deg);
+
+  }
 }
 
 
