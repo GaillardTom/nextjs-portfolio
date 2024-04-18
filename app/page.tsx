@@ -21,6 +21,7 @@ export default function Page() {
         <Bubble image="https://cdn-icons-png.flaticon.com/512/5968/5968242.png " />
         <Bubble image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vhv.rs%2Fdpng%2Fd%2F543-5438423_mysql-logo-hd-png-download.png&f=1&nofb=1&ipt=32784e9cf4beb61c6b349689fadadeb76435b3ca11a589d45cafd27772bc4200&ipo=images" />
 
+        <Bubble image="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/48x48.png" />
         <Bubble image="https://img.icons8.com/?size=256&id=cdYUlRaag9G9&format=png" />
 
         <Bubble image="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/001/817/180/datas/medium.png" />
