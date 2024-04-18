@@ -61,7 +61,7 @@ export default function Page() {
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
                 </div>
                 <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.</p>
-                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="btn absolute bottom-2 left-1/4 right-2 w-2/4 text-center hover:scale-110 hover:bg-green-900">
+                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="btn absolute bottom-2 left-1/4 right-2 w-2/4 text-center hover:scale-110 hover:animate-pulse">
                   Check
                 </Link>
               </div>
@@ -74,7 +74,7 @@ export default function Page() {
                   <h5 className="card-title">Amateur Radio License</h5>
                 </div>
                 <p className="card-text mb-16">Callsign: VA2QLF<br/>Delivered by Innovations, Science et development Canada</p>
-                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="btn absolute bottom-2 left-1/4 right-2  w-2/4 text-center hover:scale-110 hover:bg-green-900">
+                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="btn absolute bottom-2 left-1/4 right-2  w-2/4 text-center hover:animate-pulse hover:scale-110">
                   Check
                 </Link>
               </div>
