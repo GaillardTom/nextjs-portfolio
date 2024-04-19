@@ -98,9 +98,9 @@ export default function Page() {
               </div>
               
               <p className="card-text font-semibold">Cyber Security Operator</p>
-              <p className="card-text">- Cyber and numeric operator for the 35 signal unit.<br/>
-                                       - Participated in the Australian Defense Force CTF.<br/>
-                                       - Participated in multiple "Red vs Blue" exercise in conjunction with the 34 sigs.</p>
+              <p className="card-text mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
+                                       Participated in the Australian Defense Force CTF.<br/>
+                                       Participated in multiple "Red vs Blue" exercise in conjunction with the 34 sigs.</p>
             </div>
           </div>
           <div className="card w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
@@ -116,7 +116,7 @@ export default function Page() {
               </div>
               
               <p className="card-text font-semibold">IT Support Technician</p>
-              <p className="card-text">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p>
+              <p className="card-text indent-8 mt-4">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p>
             </div>
           </div>
         </div>

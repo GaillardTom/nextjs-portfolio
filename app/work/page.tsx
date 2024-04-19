@@ -21,13 +21,13 @@ export default function Page() {
   ];
 
 return (
-    <section className="projects py-12 -ml-44">
+    <section className="projects py-12 md:-ml-44">
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold mb-10 text-center">My Projects</h1>
+        <h1 className="text-3xl font-bold mb-10 text-center w-screen md:w-auto md:-mt-10">My Projects</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <Link href={project.source} passHref target="_blank" >
-            <div key={index} className="relative w-auto h-[100%] group project-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+            <div key={index} className="relative w-96 md:w-auto h-auto md:h-[100%] group project-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <img src={project.image} alt={project.title} className="w-full h-64 object-cover"/>
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">{project.title}</h2>

@@ -207,6 +207,11 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
   width: 150%;
   
 }
+@media (max-width: 600px) {
+  .projects {
+    width: 50%;
+  }
+}
 .project-card {
   border: 1px solid #ddd;
   border-radius: 4px;
