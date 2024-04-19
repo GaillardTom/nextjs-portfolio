@@ -62,9 +62,10 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <link rel="icon" href="/favicon.ico"></link>
       
       <head>
+
+      <link rel="icon" href="/favicon.ico"></link>
         <SandpackCSS />
       </head>
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
