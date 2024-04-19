@@ -98,7 +98,7 @@ export default function Page() {
               </div>
               
               <p className="card-text font-semibold">Cyber Security Operator</p>
-              <p className="card-text mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
+              <p className="card-text indent-4 mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
                                        Participated in the Australian Defense Force CTF.<br/>
                                        Participated in multiple "Red vs Blue" exercise in conjunction with the 34 sigs.</p>
             </div>
