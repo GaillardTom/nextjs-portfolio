@@ -2,23 +2,23 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
+import { getHTBPosts } from 'app/db/blog';
 
 export const metadata = {
-  title: 'Tom\'s Blog',
-  description: 'Read my thoughts on software development, cybersecurity, and more.',
-  tags: 'blog; software; cybersecurity; design',
+  title: 'Tom\'s HTB Writeups',
+  description: 'Read my writeups on Hack The Box machines.',
+  tags: 'cybersecurity;',
 };
 
-export default function BlogPage() {
-  let allBlogs = getBlogPosts();
+export default function WriteupsPage() {
+  let htbWriteups = getHTBPosts();
 
   return (
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-        read my blog
+        My Collection of Writeups
       </h1>
-      {allBlogs
+      {htbWriteups
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
