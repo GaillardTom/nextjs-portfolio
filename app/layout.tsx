@@ -11,7 +11,7 @@ import {AnimatePresence} from 'framer-motion'
 // import Image from 'next/image';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextjs-portfolio-chi-ruby.vercel.app'),
+  metadataBase: new URL('https://tom-gaillard.vercel.app/'),
   title: {
     default: 'Tom Gaillard',
     template: '%s | Tom Gaillard',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   description: 'Developer.',
   openGraph: {
     title: 'Tom Gaillard',
-    description: 'Developer, writer, and creator.',
-    url: 'https://nextjs-portfolio-chi-ruby.vercel.app',
+    description: 'Developer & Cybersecurity Analyst',
+    url: 'https://tom-gaillard.vercel.app/',
     siteName: 'Tom Gaillard',
     locale: 'en_US',
     type: 'website',
