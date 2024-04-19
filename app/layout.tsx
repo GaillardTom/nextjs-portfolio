@@ -62,6 +62,7 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
+      <link rel="icon" href="/favicon.ico"></link>
       
       <head>
         <SandpackCSS />
