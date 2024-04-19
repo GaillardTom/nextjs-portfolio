@@ -82,5 +82,6 @@ CREATE TABLE views (
 ## License 
   This project is licensed under the terms of the MIT license.
 
-
+## Credit
+  Big thanks to [lee rob](https://github.com/leerob/) for providing the template and the inspiration for this website.
 
