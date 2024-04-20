@@ -30,10 +30,10 @@ export default function BlogPage() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex flex-col space-y-1 mb-3 rounded-full w-full"
+            className="flex flex-col space-y-1 mb-3 rounded-lg  w-full h-16 wave-effect"
             href={`/blog/${post.slug}`}
           >
-          <div className="flex flex-row justify-between border-b mt-3 hover:translate-y-1">
+          <div className="flex flex-row justify-between  mt-3 hover:translate-y-1 items-center content-center">
           
             <div className=" flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
@@ -44,7 +44,7 @@ export default function BlogPage() {
 
           
           {post.metadata.tags &&
-                <div className="flex flex-col md:flex-row space-x-2  mb-5 ">
+                <div className="flex flex-col md:flex-row space-x-2">
                   {post.metadata.tags.split(";").map((tag: string) => (
                     <h1
                       key={tag}

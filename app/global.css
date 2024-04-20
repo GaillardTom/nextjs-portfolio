@@ -274,8 +274,47 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
   animation: fadeIn 1s ease-in-out;
 }
 
+.wave-effect {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
+}
+.wave-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50% 100%;
+  background: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
+  animation: wave 2s linear infinite;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.7s ease-in-out;
+  z-index: 1;
+  opacity: 0.5;
+  /* border-radius: 1; */
+}
 
+@keyframes wave {
+  0% {
+    background-position-x: 100% 0;
+  }
+  100% {
+    background-position-x: 0 0;
+  }
+}
 
+.wave-effect:hover::before {
+  transform: scaleY(1);
+}
+
+.wave-effect * {
+  position: relative;
+  z-index: 2;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .project-card-animation {
@@ -292,7 +331,48 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
 }
 
 
+
+.animate-up {
+  animation: slide-up 8s ease-in-out infinite;
+}
+
+.animate-down {
+  animation: slide-down 6s ease-in-out infinite;
+  text-transform: uppercase;
+  rotate: -90deg;
+}
+
 /* For Animation keyframes */
+
+
+
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes fillWave {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
 @keyframes scroll-watcher {
   0% {
     transform: scale(0, 1);
