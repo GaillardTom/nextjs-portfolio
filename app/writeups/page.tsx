@@ -5,8 +5,8 @@ import { getViewsCount } from 'app/db/queries';
 import { getHTBPosts } from 'app/db/blog';
 
 export const metadata = {
-  title: 'Tom\'s HTB Writeups',
-  description: 'Read my writeups on Hack The Box machines.',
+  title: 'Tom\'s Writeups',
+  description: 'Read my homemade writeups.',
   tags: 'cybersecurity;',
 };
 
@@ -16,7 +16,7 @@ export default function WriteupsPage() {
   return (
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-        My Collection of Writeups
+        My Writeups Collection
       </h1>
       {htbWriteups
         .sort((a, b) => {
@@ -31,7 +31,7 @@ export default function WriteupsPage() {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-3 rounded-full w-full"
-            href={`/blog/${post.slug}`}
+            href={`/writeups/${post.slug}`}
           >
           <div className="flex flex-row justify-between border-b mt-3 hover:translate-y-1">
           
