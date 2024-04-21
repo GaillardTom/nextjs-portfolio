@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 import Fade from 'react-reveal/Fade';
 export default function Page() {
 
-  const ref = useRef();
+  const ref = useRef(null);
 
 useEffect(() => {
     const observer = new IntersectionObserver(
