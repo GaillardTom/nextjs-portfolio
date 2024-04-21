@@ -1,0 +1,50 @@
+---
+title: 'Runner'
+publishedAt: '2024-04-20'
+summary: 'Runner box writeup'
+---
+
+<img />
+
+# Runner
+
+
+## Enumeration
+
+Output of quick ```nmap -sS runner.htb``` 
+
+```
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+8000/tcp open  http-alt
+```
+
+
+Port 8000 is running a web server. 
+Port 80 is the website of the application and looking at it nothing screams vulnerable to me just yet. 
+Let's check them out thorougly.
+
+### Dirbusting
+
+#### Port 80
+Output of quick ```dirb http://runner.htb:80/```
+
+
+#### Port 8000
+
+
+Output of quick ```dirb http://runner.htb:8000/```
+```
+---- Scanning URL: http://runner.htb:8000/ ----                                                                     
++ http://runner.htb:8000/health (CODE:200|SIZE:3)                                                                   
++ http://runner.htb:8000/version (CODE:200|SIZE:9)    
+```
+As we can see not much is there on port 8000 either but it seems like it's acting as an api for the application running on port 80.
+
+### Checking subdomains
+
+
+## Burpsuiting
+
+## Exploitation

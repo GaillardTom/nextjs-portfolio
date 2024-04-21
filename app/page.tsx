@@ -2,10 +2,40 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Bubble from './bubble';
-import {motion, useScroll, AnimatePresence} from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import Fade from 'react-reveal/Fade';
 export default function Page() {
 
-  const {scrollYProgress} = useScroll();
+  const ref = useRef();
+
+useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-down');
+        } else {
+          entry.target.classList.remove('animate-fade-in-down');
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+
 
   return (
     <section>
@@ -44,7 +74,7 @@ export default function Page() {
         </p>
         <p className="prose prose-neutral dark:prose-invert sm:mr-2"> I love to participate in CTFs and hackathons during my freetime and am always ready to collaborate! I am currently working for the Canadian Army Reserve as a cybersecurity operator. There I had the opportunity to participate in a SOC and hone my skills with various CTF and Red vs Blue exercices.</p>
         </div>
-        <Image src="/ArmyTom.jpg" alt="Tom Gaillard" width={200} height={100} className=" collapse sm:visible transition duration-300 ease-linear hover:ease-linear rounded-full hover:scale-125 w-3/6" />
+        <Image src="/ArmyTom.jpg" alt="Tom Gaillard" width={200} height={100} className=" collapse sm:visible transition duration-300 ease-linear hover:ease-linear rounded-full hover:rotate-3 w-3/6" />
         <Image src="/HelloWorldGid.gif" alt="Tom Gaillard" width={200} height={50} className="absolute right-2 sm:hidden transition duration-300 ease-linear hover:ease-linear rounded-full" />
       </div>
 
@@ -82,6 +112,8 @@ export default function Page() {
             </div> 
           </div>
         </div>
+
+    <div ref={ref} className="transition-all duration-500 ease-in-out transform-gpu opacity-0">
 
         <div className="work flex flex-col mt-10"> 
           <h1 className="text-2xl font-semibold mb-4">  Work Experience</h1>
@@ -122,8 +154,9 @@ export default function Page() {
         </div>
 
 
-      <h1 className="text-2xl font-semibold mb-4 mt-10">Education</h1>
-      <div className="education flex flex-col justify-around sm:flex-row">
+      <h1 className="text-2xl font-semibold mb-4 mt-10 transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">Education</h1>
+
+      <div className="education flex flex-col justify-around sm:flex-row transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
 
 
 
@@ -144,7 +177,6 @@ export default function Page() {
               </div>
 
         </div>
-
         <div className="card w-full h-1/2 p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
@@ -161,14 +193,13 @@ export default function Page() {
               </div>
 
         </div>
-
+</div>
 
 
 
 
 
       </div>
-
     </section>
   );
 }

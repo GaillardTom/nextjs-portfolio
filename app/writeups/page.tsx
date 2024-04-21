@@ -33,7 +33,7 @@ export default function WriteupsPage() {
             className="flex flex-col space-y-1 mb-3 rounded-lg w-full"
             href={`/writeups/${post.slug}`}
           >
-          <div className="flex items-center wave-effect flex-row rounded-lg h-16 justify-between mt-3 hover:translate-y-1 transition-all duration-200 ease-in-out hover:border-opacity-0">
+          <div className="px-2 flex items-center wave-effect flex-row rounded-lg h-16 justify-between mt-3 hover:translate-y-1 transition-all duration-200 ease-in-out hover:border-opacity-0">
           
             <div className=" flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
