@@ -27,10 +27,7 @@
     "postgres": "^3.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-<<<<<<< HEAD
     "react-reveal": "^1.2.2",
-=======
->>>>>>> 34dfb1e075000f19a6f0dcef393d59c3fcc66301
     "react-router-dom": "^6.22.3",
     "react-tweet": "3.2.0",
     "sugar-high": "^0.6.0",
