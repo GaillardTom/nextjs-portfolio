@@ -8,6 +8,7 @@ export const metadata = {
   title: 'Tom\'s Writeups',
   description: 'Read my homemade writeups.',
   tags: 'cybersecurity;',
+  image: 'path_to_image',
 };
 
 export default function WriteupsPage() {
@@ -33,18 +34,22 @@ export default function WriteupsPage() {
             className="flex flex-col space-y-1 mb-3 rounded-lg w-full"
             href={`/writeups/${post.slug}`}
           >
+            
           <div className="px-2 flex items-center wave-effect flex-row rounded-lg h-16 justify-between mt-3 hover:translate-y-1 transition-all duration-200 ease-in-out hover:border-opacity-0">
           
+{post.metadata.image && <img src={post.metadata.image} className="md:visible w-14 h-14 rounded-lg md:-mr-44" alt="writeup image" />}
+
+
             <div className=" flex flex-col">
+              
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight text-xl">
                 {post.metadata.title}
               </p>
-              
+             
+             
                 </div>
-
-          
-          {post.metadata.tags &&
-                <div className="flex flex-col md:flex-row space-x-2  mb-5 ">
+           {post.metadata.tags &&
+                <div className="flex flex-col md:flex-row space-x-2">
                   {post.metadata.tags.split(";").map((tag: string) => (
                     <h1
                       key={tag}
@@ -55,6 +60,8 @@ export default function WriteupsPage() {
                   ))}
               
             </div>}
+          
+           
             <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />
               </Suspense>
