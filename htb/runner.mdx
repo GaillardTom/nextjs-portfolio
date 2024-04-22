@@ -2,14 +2,14 @@
 title: 'Runner'
 publishedAt: '2024-04-20'
 summary: 'Runner box writeup'
+tags: 'HTB'
+image: '/HTBrunnerLogo.webp'
 ---
+<div className="w-full items-center content-center justify-center align-center">
+<img src="/HTBrunnerLogo.webp" alt="runner" width={200} height={200} className="justify-self-center content-center items-center"/>
+</div>
 
-<img />
-
-# Runner
-
-
-## Enumeration
+# Enumeration / Reconnaisance
 
 Output of quick ```nmap -sS runner.htb``` 
 
@@ -44,7 +44,115 @@ As we can see not much is there on port 8000 either but it seems like it's actin
 
 ### Checking subdomains
 
+Checking subdomains using ```sudo gobuster dns -d runner.htb -w /usr/share/wordlists/dirb/common.txt```
+Gives us not much information either.
 
-## Burpsuiting
+### Checking vhosts
 
-## Exploitation
+Checking vhosts using ```sudo gobuster vhost -u http://runner.htb -w /usr/share/wordlists/dirb/common.txt```
+
+```
+Found: .git/HEAD Status: 400 [Size: 166]
+Found: .svn/entries Status: 400 [Size: 166]
+Found: @ Status: 400 [Size: 166]
+Found: _vti_bin/_vti_adm/admin.dll Status: 400 [Size: 166]
+Found: _vti_bin/_vti_aut/author.dll Status: 400 [Size: 166]
+Found: _vti_bin/shtml.dll Status: 400 [Size: 166]
+Found: cgi-bin/ Status: 400 [Size: 166]
+Found: CVS/Repository Status: 400 [Size: 166]
+Found: CVS/Entries Status: 400 [Size: 166]
+Found: CVS/Root Status: 400 [Size: 166]
+Found: Documents and Settings Status: 400 [Size: 166]
+Found: Program Files Status: 400 [Size: 166]
+Found: reports list Status: 400 [Size: 166]
+```
+
+Still nothing interesting here.
+
+I was getting stuck so I hopped on the discord to find some hint about the new box, some people posted about subdomains.
+I decided to re-enumerate the subdomains using a popular wordlist [SecList](https://github.com/danielmiessler/SecLists).
+ 
+Rechecking subdomains with this command ```sudo gobuster dns -d runner.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt```
+and found this subdomain ```teamcity.runner.htb```
+```
+[+] Domain:     runner.htb                                                                                          
+[+] Threads:    16                                                                                                  
+[+] Timeout:    1s                                                                                                  
+[+] Wordlist:   /usr/share/wordlists/SecLists/Discovery/DNS/bitquark-subdomains-top100000.txt                       
+===============================================================
+Starting gobuster in DNS enumeration mode
+===============================================================
+Found: teamcity.runner.htb
+
+```
+Added that to the /etc/hosts file and checked it out.
+Seems to redirect to the login page of the application.
+and shows a login page using teamcity version 2023, looked online and found several CVE for this service.
+
+Time to fire up Metasploit and check for the CVEs...
+
+
+# Exploitation
+
+## Metasploiting
+
+Hoping on metasploit and searching for the teamcity module.
+```search teamcity```
+I then used this [CVE](https://nvd.nist.gov/vuln/detail/CVE-2024-27198) to exploit the service.
+
+```use exploit/multi/http/jetbrains_teamcity_rce_cve_2024_27198```
+
+Set the options and run the exploit.
+
+## Foothold
+
+After running the exploit I got a shell as the user ```tcuser```
+
+Looking around in the files to see if I can find anything interesting.
+
+Using grep I was able to find an interesting file:<br/>
+Found ssh public key of user john in ```/data/teamcity_server/datadir/config/projects/AllProjects/pluginData   ```
+
+I then used the key to ssh into the box as john using ```ssh -i id_rsa john@runner.htb```
+
+Once inside I found the user flag in john's home directory.
+<img src="/runnerUserFlag.jpg" alt="user flag"/>
+
+From there let's try and escalate to root.
+
+# Privilege Escalation
+
+We still do not have the password for the user john so we need to find a way to escalate to root.
+Running linpeas.sh on the box to find any potential vulnerabilities.
+Found a new subdomain while running linpeas.sh 
+```
+server {
+    listen 80;
+    server_name portainer-administration.runner.htb;
+    location / {
+        proxy_pass https://localhost:9443;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+```
+Add the portainer-administration.runner.htb to the /etc/hosts file and check it out.
+It seems to be a portainer instance running on the box protected via a password.
+
+<img src="/portainerLogin.jpg" alt="portainerLoginPage"/>
+
+Found matthew's hash inside a backup file: $2a$07$q.m8WQP8niXODv55lJVovOmxGtg6K/YPHbD48/JQsdGLulmeVo.Em
+
+Cracked the hash using hashcat using rockyou.txt and found the password to be ```piper123```
+<img src="/matthewPassCracked.jpg" alt="hashcat"/>
+
+Now we can login to the portainer instance using matthew's credentials and check out the containers running on the box.
+We can see the rooty volume is mounted on one of the container and we can see the path.
+We then exec into the container, cd into the path and get the root flag as simple as that!
+
+<img src="/portainerCMD.PNG" alt="portainer exec"/>
+
