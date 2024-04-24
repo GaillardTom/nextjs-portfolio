@@ -30,9 +30,10 @@ export function Footer() {
 
                 <div className="flex flex-col">
 
+                  
 
-                    
                 <Image width={75} height={75} alt="Contacts" src="/images/address-book.png" className='group-hover:animate-pulse group-hover:rotate-12 transition ease-in-out' />
+ 
                 {/* <h1 className="text-md prose prose-neutral dark:prose-invert group-hover:animate-pulse font-bold">Contacts</h1> */}
                 </div> 
             </button>
