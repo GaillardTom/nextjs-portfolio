@@ -1,3 +1,4 @@
+
 import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
@@ -8,7 +9,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 import {Footer} from './components/footer'
 // import Image from 'next/image';
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://tom-gaillard.vercel.app/'),
   title: {
@@ -77,7 +77,6 @@ export default function RootLayout({
           <SpeedInsights />
         </main>
       </body>
-      
     </html>
   );
 }
