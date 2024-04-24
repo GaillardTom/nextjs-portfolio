@@ -33,7 +33,7 @@ export function Navbar() {
                 <Link
                   key={path}
                   href={path}
-                  className="wave-effect ml-8 text-xl transition-all hover:scale-105 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 rounded-lg"
+                  className="wave-effect ml-8 text-xl transition-all hover:scale-105 dark:text-neutral-200 text-neutral-800 dark:hover:text-neutral-50 flex align-middle relative py-1 px-2 rounded-lg"
                 >
                   {name}
                 </Link>
@@ -41,6 +41,7 @@ export function Navbar() {
             })}
           </div>
         </nav>
+
       </div>
     </aside>
   );

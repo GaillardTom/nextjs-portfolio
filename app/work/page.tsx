@@ -23,11 +23,11 @@ export default function Page() {
 return (
     <section className="projects py-12 md:-ml-44">
       <div className="container mx-auto">
-        <h1 className="text-3xl font-bold mb-10 text-center w-screen md:w-auto md:-mt-10">My Projects</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <h1 className="text-3xl font-bold mb-10 text-center md:w-auto md:-mt-10">My Projects 🧪</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {projects.map((project, index) => (
             <Link href={project.source} passHref target="_blank" >
-            <div key={index} className="relative w-96 md:w-auto h-auto md:h-[100%] group project-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+            <div key={index} className="relative w-96 sm:w-full h-auto md:h-[100%] group project-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <img src={project.image} alt={project.title} className="w-full h-64 object-cover"/>
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
@@ -35,7 +35,7 @@ return (
               { project.link && <Link href={project.link} target="_blank" className="hover:scale-105 hover:animate-pulse absolute btn bottom-2 left-2 text-center"> demo </Link>}
               {project.source && 
                   <Link href={project.source} passHref target="_blank" >
-                          <img src="/social.png" className="absolute hover:scale-125 bottom-2 right-2" alt="GitHub Logo" style={{ width: '40px', height: '40px' }}/>
+                          <img src="/social.png" className="absolute hover:rotate-12 bottom-2 right-2" alt="GitHub Logo" style={{ width: '40px', height: '40px' }}/>
                   </Link>
                 }
               

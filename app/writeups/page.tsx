@@ -42,7 +42,7 @@ export default function WriteupsPage() {
   return (
     <section>
     <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-      My Writeups Collection
+      My Writeups Collection 🏴‍☠️
     </h1>
     <Tags  tagsDict={tags} redirect={"/tags/" } selectedTag={''}></Tags>
     {htbWriteups
@@ -77,7 +77,7 @@ export default function WriteupsPage() {
                   {post.metadata.tags.split(";").map((tag: string) => (
                   <h1
                     key={tag}
-                    className="text-sm  bg-neutral-100 dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-12 lg:w-16"
+                    className="text-sm  bg-neutral-200 dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-12 lg:w-16"
                   >
                     {tag}
                   </h1>

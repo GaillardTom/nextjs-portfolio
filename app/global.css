@@ -157,7 +157,8 @@ table {
 
 .card-text {
   /* margin-bottom: 20%; */
-  color: rgb(255, 254, 254);
+  color: rgb(27,27,27);
+  
 }
 
 .btn {
@@ -180,6 +181,15 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
   will-change: transform;
   z-index: -1;
 }
+
+@media (prefers-color-scheme: dark) {
+
+  .card-text{ 
+    color: rgb(255, 254, 254);
+
+  }
+}
+
 
 @keyframes riseAndSway {
   0% {
@@ -398,7 +408,7 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
     overflow-x: hidden;
     margin-left: 1vw;
     border-radius: 100vw;
-    backdrop-filter: blur(0.40rem);
+    backdrop-filter: blur(0.45rem);
 
     width: var(--_headerWidth);
   }
