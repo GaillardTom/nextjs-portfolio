@@ -118,11 +118,11 @@ useEffect(() => {
         <div className="work flex flex-col mt-10"> 
           <h1 className="text-2xl font-semibold mb-4">  Work Experience</h1>
 
-          <div className="card w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
+          <div className="card w-full hover:backdrop-blur-xl  hover:backdrop-contrast-200 hover:backdrop-opacity-100	 p-2 flex flex-col relative hover:scale-110 hover:z-10 hover:saturate-200  transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
 
             <div className="card-body flex-grow">
               <div className="flex flex-row">
-                <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/army_logo.jpg"/>
+                <Image className="rounded-full mr-4 mb-4 z-3" alt="Canadian flag" width={50} height={50} src="/army_logo.jpg"/>
                 <div className="flex flex-col justify-center">
                 <h5 className="card-title h-3">Canadian Army Reserve</h5>
                 <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> April 2019 - Present </p>
