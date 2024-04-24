@@ -30,15 +30,22 @@ function countTags(posts) {
   return tagCounts;
 }
 
-export default function BlogPage() {
+export default function BlogPage({params}) {
   let allBlogs = getBlogPosts();
+  allBlogs = allBlogs.filter((post) => {
+    if (post.metadata.tags) {
+      return post.metadata.tags.includes(params.tag);
+    }
+  
+  });
+
   const tags = countTags(allBlogs);
   return (
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">
         read my blog
       </h1>
-      <Tags tagsDict={tags} redirect={"/blogtags/" } selectedTag={''}></Tags>
+      <Tags tagsDict={tags} redirect={"/blogtags/" } selectedTag={params.tag}></Tags>
       {allBlogs
         .sort((a, b) => {
           if (
@@ -51,7 +58,7 @@ export default function BlogPage() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="animate-fade-in-down wave-effect flex flex-col space-y-1 mb-3 rounded-lg  w-full h-16 px-3 py-2 hover:translate-y-1 transition-all duration-200 ease-in-out "
+            className="wave-effect flex flex-col space-y-1 mb-3 rounded-lg  w-full h-16 px-3 py-2 hover:translate-y-1 transition-all duration-200 ease-in-out "
             href={`/blog/${post.slug}`}
           >
           <div className="rounded-lg flex flex-row justify-between  mt-3 items-center content-center">

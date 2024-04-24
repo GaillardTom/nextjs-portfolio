@@ -299,6 +299,7 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
   z-index: -1;
 }
 
+
 @keyframes wave {
   0% {
     background-position-x: 100% 0;
@@ -343,9 +344,66 @@ background-image: linear-gradient(45deg, #2AF598 0%, #08AEEA 100%);
   rotate: -90deg;
 }
 
+.glass-nav{ 
+  --_animationStartsAfter: 50vh;
+  --_animationDistance: 400px;
+  --_surfaceColorStart: hsl(0 10% 5%);
+  --_surfaceColorEnd: hsl(0 50% 90% / 0.1);
+  --_textColorStart: hsl(0 10% 90%);
+  --_textColorEnd: hsl(0 10% 90%);
+  animation: stickyNav liner forwards;
+  animation-timeline: view();
+  /* animation-range-start: 100vh; */
+  /* animation-range-end: 120vh; */
+  z-index: 10;
+  @supports (animation-timeline: view()) {
+
+    overflow-x: hidden;
+    animation: stickyNav linear forwards;
+    animation-timeline: view();
+    animation-range-start: calc(50vh + var(--_animationStartsAfter));
+    animation-range-end: calc(
+      50vh + var(--_animationStartsAfter) + var(--_animationDistance)
+    );
+  }
+}
+@media screen and (min-width: 768px) {
+    .glass-nav{
+      --_headerWidth: 90%;
+      overflow-x: hidden;
+    }
+    
+}
+
 /* For Animation keyframes */
 
+@keyframes stickyNav {
+  0%,
+  100% {
+    --_headerWidth: 100%;
+    --_logoDisplay: var(--_logoAfterAnimation);
+  }
 
+  100% {
+    /* top: 1rem; */
+    /* left: 1rem; */
+    color: var(--_textColorEnd);
+    background-color: var(--_surfaceColorEnd);
+    box-shadow: inset 0 0 0.5rem hsl(0 0% 100% / 0.1),
+      0 0 0.75rem hsl(0 0% 0% / 0.3);
+    text-align: center;
+    justify-items: center;
+    /* margin-left: 5%; */
+    overflow: hidden;
+    overflow-x: hidden;
+    margin-left: 1vw;
+    border-radius: 100vw;
+    backdrop-filter: blur(0.40rem);
+
+    width: var(--_headerWidth);
+  }
+  
+}
 
 
 @keyframes slide-up {
