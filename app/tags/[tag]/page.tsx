@@ -43,7 +43,7 @@ export default function WriteupsTagsPage({params}) {
   return (
     <section>
     <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-      My Writeups Collection 
+      My Writeups Collection 🏴‍☠️
     </h1>
     
     <Tags tagsDict={tags} redirect={"/tags/" } selectedTag={params.tag}></Tags>

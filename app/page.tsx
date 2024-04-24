@@ -68,14 +68,14 @@ useEffect(() => {
       <div className="flex flex-row sm:justify-between">
         <div className="flex flex-col ">
         <h1
-        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
+        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard 👽</h1>
         <p className="prose prose-neutral dark:prose-invert text-lg mb-4 font-large font-semibold">
-          Hey I'm Tom, a developer and a cyber security enthusiast.
+          🖖 Hey I'm Tom, a developer and a cyber security enthusiast.
         </p>
         <p className="prose prose-neutral dark:prose-invert sm:mr-2"> I love to participate in CTFs and hackathons during my freetime and am always ready to collaborate! I am currently working for the Canadian Army Reserve as a cybersecurity operator. There I had the opportunity to participate in a SOC and hone my skills with various CTF and Red vs Blue exercices.</p>
         </div>
         <Image src="/ArmyTom.jpg" alt="Tom Gaillard" width={200} height={100} className=" collapse sm:visible transition duration-300 ease-linear hover:ease-linear rounded-full hover:rotate-3 w-3/6" />
-        <Image src="/HelloWorldGid.gif" alt="Tom Gaillard" width={200} height={50} className="absolute right-2 sm:hidden transition duration-300 ease-linear hover:ease-linear rounded-full" />
+        <Image src="/male-coding.gif" alt="Tom Gaillard" width={250} height={100} className="absolute right-2 sm:hidden transition duration-300 ease-linear hover:ease-linear rounded-full" />
       </div>
 
 
@@ -84,11 +84,11 @@ useEffect(() => {
           <h1 className="text-2xl font-semibold mb-4">
             Certifications
           </h1>
-          <div className="flex flex-wrap justify-between flex-col sm:flex-row">
-            <div className="card w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
+          <div className="flex flex-wrap justify-between flex-row">
+            <div className="card w-64 h-[300px] sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
-                  <Image className="rounded-full mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
+                  <Image className="rounded-lg mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
                 </div>
                 <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.</p>
@@ -98,10 +98,10 @@ useEffect(() => {
               </div>
             </div> 
 
-            <div className="card w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110 " style={{ maxWidth: "20rem" }}>
+            <div className="card w-64 h-[300px] sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
-                  <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
+                  <Image className="rounded-lg mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
                   <h5 className="card-title">Amateur Radio License</h5>
                 </div>
                 <p className="card-text mb-16">Callsign: VA2QLF<br/>Delivered by Innovations, Science et development Canada</p>

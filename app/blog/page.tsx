@@ -36,7 +36,7 @@ export default function BlogPage() {
   return (
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-        read my blog
+        read my blog 📚
       </h1>
       <Tags tagsDict={tags} redirect={"/blogtags/" } selectedTag={''}></Tags>
       {allBlogs
