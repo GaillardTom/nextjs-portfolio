@@ -17,8 +17,7 @@ function countTags(posts) {
   const tagCounts = {};
 
   posts.forEach((post) => {
-    if (post.metadata.tags) {
-    const tags = post.metadata?.tags.split(';');
+    const tags = post.metadata.tags.split(';');
     tags.forEach((tag) => {
       if (tag in tagCounts) {
         tagCounts[tag]++;
@@ -26,25 +25,28 @@ function countTags(posts) {
         tagCounts[tag] = 1;
       }
     });
-  }
   });
 
   return tagCounts;
 }
 
-export default function WriteupsPage() {
+export default function WriteupsTagsPage({params}) {
   let htbWriteups = getHTBPosts();
 
   const tags = countTags(htbWriteups); 
+  console.log(params.tag)
+  htbWriteups = htbWriteups.filter((post) => post.metadata?.tags?.includes(params.tag));
   console.log(tags)
-
+  console.log(params)
+  console.log(htbWriteups)
     
   return (
     <section>
     <h1 className="font-bold text-2xl mb-8 tracking-tighter">
-      My Writeups Collection
+      My Writeups Collection 
     </h1>
-    <Tags  tagsDict={tags} redirect={"/tags/" } selectedTag={''}></Tags>
+    
+    <Tags tagsDict={tags} redirect={"/tags/" } selectedTag={params.tag}></Tags>
     {htbWriteups
       .sort((a, b) => {
         if (
@@ -57,7 +59,7 @@ export default function WriteupsPage() {
       .map((post) => (
         <Link
           key={post.slug}
-          className="animate-fade-in-down flex flex-col space-y-1 mb-3 rounded-lg lg:w-full"
+          className="flex flex-col space-y-1 mb-3 rounded-lg lg:w-full"
           href={`/writeups/${post.slug}`}
         >
           
@@ -77,7 +79,7 @@ export default function WriteupsPage() {
                   {post.metadata.tags.split(";").map((tag: string) => (
                   <h1
                     key={tag}
-                    className="text-sm  bg-neutral-100 dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-12 lg:w-16"
+                    className="text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-12 lg:w-16"
                   >
                     {tag}
                   </h1>
