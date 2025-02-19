@@ -156,10 +156,10 @@ useEffect(() => {
 
       <h1 className="text-2xl font-semibold mb-4 mt-10 transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">Education</h1>
 
-      <div className="education grid md:grid-cols-2 sm:grid-cols-1 md:justify-around sm:flex-row transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
+      <div className="education grid md:grid-cols-2 sm:grid-cols-1 md:justify-around sm:flex-row sm:justify-items-center transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
 
 
-        <div className="card w-full  p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        <div className="card w-full  p-2  ml-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="UdeS logo" width={50} height={50}  src="/images/uds_logo.png"/>
@@ -176,7 +176,7 @@ useEffect(() => {
 
         </div>
 
-        <div className="card w-full  p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        <div className="card w-full  p-2 ml-2  flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/champlain_logo.jpg"/>
@@ -192,7 +192,7 @@ useEffect(() => {
               </div>
 
         </div>
-        <div className="card w-full  p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        <div className="card w-full  p-2 ml-2  flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/montcalm_logo.jpg"/>
