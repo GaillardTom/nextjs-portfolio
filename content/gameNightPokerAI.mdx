@@ -1,0 +1,72 @@
+---
+title: 'Game Night Poker AI'
+publishedAt: '2025-02-23'
+summary: 'My participation in the Game Night Poker AI challenge hosted by the British Army.'
+tags: 'dev; python'
+---
+
+# Game Night Poker AI
+
+<img src="/images/UIGameNightPoker.png" alt="GameNightPokerUI"/>
+
+## Introduction
+
+The British Army hosted a challenge to create an AI and a strategy that can play poker during a cybersecurity competition. The AI was tested against other AIs created by other players from around the world in a game night, with the winner being awarded a prize of __1500 points__ during the Red vs Blue cyber competition.
+I was a developer for this challenge, working with a team. I had lots of fun and learned a lot about AI and poker in general.
+There was 16 teams in total from all around the world just for this challenge. In this article I will share my experience and the strategies we used to create our AI.
+
+## Tools and Technologies used
+
+- Python
+- Scikit-learn
+- Docker
+- WebSockets for the tests 
+- Git/GitHub for version control and collaboration
+
+## The AI Model
+
+The AI model needed to recognize the best hand we had and, at the same time, recognize the highest hand possible on the table. 
+We used a Decision Tree (DT2) model to predict the best hand and a Random Forest model to predict the highest hand possible on the table.
+To process our data, we used the following features that we added to our dataset:
+- __SuitCount__ - The number unique suites in the hand
+- __FullHouse__ - If the hand is a full house
+- __Straight__ - If the hand is a straight
+- __ThreeOfAKind__ - If the hand is a three of a kind
+- __TwoPair__ - If the hand is a two pair
+- __Pair__ - If the hand is a pair
+
+At first we didn't add the fullhouse, the three of a kind and the two pair features, but we saw that our AI was not performing well, so we added them and it improved our hand detection a lot.
+Our AI was able to detect the best hand we had and the highest hand on the table with a high accuracy. All that was left was to create a strategy to play the game.
+ 
+
+## The Strategy
+
+Our strategy was to play safe and only bet when we had a good hand. We also tried to bluff sometimes, but it didn't work out that well. The strategy was separated into two logics:
+one for the __preflop__ (before the reveal of the first three cards) and one for the __postflop__ (after the reveal of the first three cards). The preflop logic was to only bet if we had a pair or a high card.
+The postflop logic was to bet if we had a pair or a high card and if the highest hand on the table was not that high here's a little video showing our strategies at work (Nice music too).
+
+<video controls>
+    <source src="/media/GameNightDuel.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+
+
+We also ran test games to see how well our AI and strategies were performing.
+A teammate and I created a test that could spin up multiple Docker containers and run games in parallel, grab the information for the winner using WebSockets, and then calculate a winning percentage based on thousands of games.
+With this test, we were able to see how well our AI was performing and make adjustments to improve it.
+We also saw that our original version was the strongest achieving a __winning percentage of around 73%__ against the AI provided.
+
+<img src="/images/GameNightTest.png" onError="this.style.display='none'" alt="Test of strategies"/>
+
+While that was cooking, we also created a bunch of different model being more passive, more aggressive, and so on. We then ran the test again to see which one was the best. We found out that the original version was the best and we decided to stick with it.
+## Results
+
+Our AI performed well in the competition, achieving a __winning percentage of X%__. We learned a lot from this experience and are excited to apply these learnings to future projects.
+
+## Conclusion
+
+Participating in the Game Night Poker AI challenge was a rewarding experience. It provided valuable insights into AI and python development. Working with a team and overcoming challenges together made the experience even more memorable. We look forward to participating in similar challenges in the future.
+You can also check out the source code and everything we did on our [GitHub repository](https://github.com/gaillardtom/GameNightPokerAI).
+
+
+> __Thanks For Reading!__ <br/> - Gaillard Tom
