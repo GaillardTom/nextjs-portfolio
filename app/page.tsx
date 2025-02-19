@@ -84,21 +84,21 @@ useEffect(() => {
           <h1 className="text-2xl font-semibold mb-4">
             Certifications
           </h1>
-          <div className="flex flex-wrap justify-between flex-row">
-            <div className="card w-64 h-[300px] sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
+          <div className="flex flex-wrap justify-around flex-row">
+            <div className="card lg:w-full lg:h-[200px] md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
                 </div>
-                <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.</p>
+                <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.<br/></p>
                 <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="btn absolute bottom-2 left-1/4 right-2 w-2/4 text-center hover:scale-110 hover:animate-pulse">
                   Check
                 </Link>
               </div>
             </div> 
 
-            <div className="card w-64 h-[300px] sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
+            <div className="card lg:w-full  md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
@@ -156,12 +156,27 @@ useEffect(() => {
 
       <h1 className="text-2xl font-semibold mb-4 mt-10 transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">Education</h1>
 
-      <div className="education flex flex-col justify-around sm:flex-row transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
+      <div className="education grid md:grid-cols-2 sm:grid-cols-1 md:justify-around sm:flex-row transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
 
 
+        <div className="card w-full  p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+            <div className="card-body flex-grow">
+            <div className="flex flex-row">
+            <Image className="rounded-full mr-4 mb-4" alt="UdeS logo" width={50} height={50}  src="/images/uds_logo.png"/>
+              <div className="flex flex-col justify-center">
+              <h5 className="card-title h-3">Universite de Sherbrooke</h5>
+                  <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> Sept 2024 - 2027 </p>
+              </div>
+            </div>
 
+              <p className="card-text text-left font-semibold">Bsc. Computer Science</p>
+              {/* <p className="card-text">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p> */}
+ 
+              </div>
 
-        <div className="card w-full h-1/2 p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        </div>
+
+        <div className="card w-full  p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/champlain_logo.jpg"/>
@@ -177,7 +192,7 @@ useEffect(() => {
               </div>
 
         </div>
-        <div className="card w-full h-1/2 p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        <div className="card w-full  p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/montcalm_logo.jpg"/>
