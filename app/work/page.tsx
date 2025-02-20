@@ -8,6 +8,7 @@ export default function Page() {
   const projects = [
     // Add your projects here
      {title:'Game Night Poker AI', description: 'Worked with a team to create an AI that can detect hands and play poker. Used in an international challenge hosted by the british army', image: '/images/UIGameNightPoker.png', source: 'https://github.com/GaillardTom/GameNightPokerAI'},
+     {title:'Instagram Stalker', description: 'OSINT project: Written in python with django/flask/mongoDB, this application can see the latest followings of an individual on instagram. Had to reverse their API using burpsuite and create logic to bypass the filters.', image: '/images/InstaStalkerUI.PNG', source: 'https://github.com/GaillardTom/InstaStalker'},
     { title: 'Wardriving', 
     description: 'Webapp to show Wi-Fi networks from a kismet scan on a map. Can also perform search and filter certain types of network', 
     image: '/wardriving.jpg',
