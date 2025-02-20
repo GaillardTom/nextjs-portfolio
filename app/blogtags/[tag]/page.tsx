@@ -34,7 +34,12 @@ export default function BlogPage({params}) {
   let allBlogs = getBlogPosts();
   allBlogs = allBlogs.filter((post) => {
     if (post.metadata.tags) {
-      return post.metadata.tags.includes(params.tag);
+      for (let tag of post.metadata.tags.split(';')) {
+        if (tag == params.tag) {
+          return true;
+        }
+      }
+      return false;
     }
   
   });
@@ -76,7 +81,7 @@ export default function BlogPage({params}) {
                   {post.metadata.tags.split(";").map((tag: string) => (
                     <h1
                       key={tag}
-                      className="flex justify-center text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-24"
+                      className="flex justify-center text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-full"
                     >
                       {tag}
                     </h1>
