@@ -35,7 +35,7 @@ return (
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
                 <p className="text-gray-700 mb-10">{project.description}</p>
-              { project.link && <Link href={project.link} target="_blank" className="hover:scale-105 hover:animate-pulse absolute btn bottom-2 left-2 text-center"> demo </Link>}
+              { project.link && <Link href={project.link} target="_blank" className="hover:scale-105 hover:animate-pulse absolute btn bottom-2 left-2 w-fill">demo</Link>}
               {project.source && 
                   <Link href={project.source} passHref target="_blank" >
                           <img src="/social.png" className="absolute hover:rotate-12 bottom-2 right-2" alt="GitHub Logo" style={{ width: '40px', height: '40px' }}/>
