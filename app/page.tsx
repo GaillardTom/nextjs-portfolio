@@ -68,7 +68,7 @@ useEffect(() => {
       <div className="flex flex-row sm:justify-between">
         <div className="flex flex-col ">
         <h1
-        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard 👽</h1>
+        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
         <p className="prose prose-neutral dark:prose-invert text-lg mb-4 font-large font-semibold">
           🖖 Hey I'm Tom, a developer and a cyber security enthusiast.
         </p>
@@ -85,8 +85,8 @@ useEffect(() => {
             Certifications
           </h1>
           <div className="flex flex-wrap justify-around flex-row">
-            <div className="card lg:w-full lg:h-[200px] md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
-              <div className="card-body flex-grow">
+            <div className="card hover:backdrop-blur-lg lg:w-full lg:h-[200px] md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
+              <div className="card-body flex-grow	">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
@@ -98,7 +98,7 @@ useEffect(() => {
               </div>
             </div> 
 
-            <div className="card lg:w-full  md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
+            <div className="card lg:w-full hover:backdrop-blur-lg md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
@@ -115,10 +115,10 @@ useEffect(() => {
 
     <div ref={ref} className="transition-all duration-500 ease-in-out transform-gpu opacity-0">
 
-        <div className="work flex flex-col mt-10"> 
+        <div className="work flex flex-col mt-10 "> 
           <h1 className="text-2xl font-semibold mb-4">  Work Experience</h1>
 
-          <div className="card w-full hover:backdrop-blur-xl  hover:backdrop-contrast-200 hover:backdrop-opacity-100	 p-2 flex flex-col relative hover:scale-110 hover:z-10 hover:saturate-200  transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
+          <div className="card w-full p-2 flex flex-col relative hover:scale-110   transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
 
             <div className="card-body flex-grow">
               <div className="flex flex-row">
@@ -130,12 +130,12 @@ useEffect(() => {
               </div>
               
               <p className="card-text font-semibold">Cyber Security Operator</p>
-              <p className="card-text indent-4 mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
+              <p className="card-text mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
                                        Participated in the Australian Defense Force CTF.<br/>
-                                       Participated in multiple "Red vs Blue" exercise in conjunction with the 34 sigs.</p>
+                                       Participated in multiple "Red vs Blue" exercise in conjunction with the 34 signal unit.</p>
             </div>
           </div>
-          <div className="card w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
+          <div className="card hover:backdrop-blur-lg  w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
 
             <div className="card-body flex-grow">
               <div className="flex flex-row">
@@ -148,7 +148,7 @@ useEffect(() => {
               </div>
               
               <p className="card-text font-semibold">IT Support Technician</p>
-              <p className="card-text indent-8 mt-4">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p>
+              <p className="card-text  mt-4">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts to meet requirements.</p>
             </div>
           </div>
         </div>

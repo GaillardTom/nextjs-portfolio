@@ -1,0 +1,79 @@
+---
+title: 'My First Real Red Team Experience'
+publishedAt: '2025-02-29'
+summary: 'My participation in the Red vs Blue DCM4 cybersecurity competition hosted by the british army.'
+tags: 'cybersec'
+---
+
+
+# The Dark Side of the Force
+
+## Introduction
+
+The British Army hosted a Red vs Blue cyber competition called DCM4.
+We had to attack 35 blue teams and I was part of the Red Team composed of around 110 operators, it was my first real experience in a Red Team. 
+I had a lot of fun and learned a lot about how to attack and pivot inside an actively guarded network.
+I also learned a lot about cobalt strike and was able to carry on the attack instructed to me by the team leader. 
+
+## Range Diagram
+
+The infrastructure was divided into multiple enclave, each one with different services and different levels of security.
+
+- __Health__ : 
+<img src="/images/health_enclave.PNG" alt="Health Enclave"/>
+
+- __BT SOC__: 
+<img src="/images/BT_SOC.PNG" alt="BT SOC Enclave"/>
+
+- __GOV__: 
+<img src="/images/gov_enclave.PNG" alt="GOV Enclave"/>
+
+- __MIL__: 
+<img src="/images/mil_enclave.PNG" alt="MIL Enclave"/>
+
+- __DEPS__: 
+<img src="/images/deps_enclave.PNG" alt="DEPS Enclave"/>
+
+- __DEPO__: 
+<img src="/images/depo_enclave.PNG" alt="DEPS Enclave"/>
+
+## C2 Frameworks used
+
+- Cobalt Strike (C2 Framework SPHINX) 
+- Tuoni (C2 Framework LEVIATHAN)
+
+<img src="/images/UI_CS.png" alt="UI Cobalt Strike"/>
+
+
+## The Setup & Attack Campaign
+
+The goal was to carry out missions we had been given by the team leader.  
+We had access to a VPN and a big infrastructure with a lot of tools to help us carry out the attacks.
+We had 2 groups, one called SPHINX and the other LEVIATHAN, using different TTPs and C2 frameworks.
+I was assigned to the SPHINX group using CS. Their main goal was to act as an hacktivist group and disrupt or deface the services of the blue team.
+
+<img src="/images/ISA_DCM4.png" alt="Red Team"/>
+
+## The Attack
+
+#### Overview:
+The attacks were separated by day with an increasing aggressivity for our campaign.
+Each day there was a morning and an evening phase with a different set of missions to carry out.
+{/* <img src="/images/playbook_sphinx.png" alt="Playbook overview"/> */}
+
+#### Day 1:
+The first day was a reconnaissance phase where we had to gather information about the blue team and their services.
+
+
+#### Day 2:
+
+#### Day 3:
+
+#### Day 4:
+
+#### Day 5:
+
+## The attack report 
+
+included all the IoC, timeline, and the TTPs used during the attack.
+We had to submit it to the team leader and the White Team to show them how we were able to pivot inside the network and disrupt the operations or exfill the sensible information.
