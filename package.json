@@ -23,6 +23,7 @@
     "@vercel/analytics": "^1.1.3",
     "@vercel/postgres": "^0.8.0",
     "@vercel/speed-insights": "^1.0.10",
+    "caniuse-lite": "^1.0.30001701",
     "dotenv": "^16.4.2",
     "framer-motion": "^11.1.3",
     "geist": "1.2.2",
