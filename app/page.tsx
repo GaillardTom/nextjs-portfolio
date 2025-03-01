@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Bubble from './bubble';
 import React, { useEffect, useRef } from 'react';
 import Fade from 'react-reveal/Fade';
+import LaunchIcon from '@mui/icons-material/Launch';
+import { IconButton } from '@mui/material';
+
 export default function Page() {
 
   const ref = useRef(null);
@@ -68,7 +71,7 @@ useEffect(() => {
       <div className="flex flex-row sm:justify-between">
         <div className="flex flex-col ">
         <h1
-        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard 👽</h1>
+        className="flex text-3xl mb-8 tracking-tighter font-extrabold">Tom Gaillard</h1>
         <p className="prose prose-neutral dark:prose-invert text-lg mb-4 font-large font-semibold">
           🖖 Hey I'm Tom, a developer and a cyber security enthusiast.
         </p>
@@ -84,30 +87,37 @@ useEffect(() => {
           <h1 className="text-2xl font-semibold mb-4">
             Certifications
           </h1>
-          <div className="flex flex-wrap justify-between flex-row">
-            <div className="card w-64 h-[300px] sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
-              <div className="card-body flex-grow">
+          <div className="flex flex-wrap justify-around flex-row">
+            <div className="card lg:h-full hover:backdrop-blur-lg lg:w-full md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
+              <div className="card-body flex-grow	">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
+                  
                 </div>
-                <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.</p>
-                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="btn absolute bottom-2 left-1/4 right-2 w-2/4 text-center hover:scale-110 hover:animate-pulse">
-                  Check
+                <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.<br/></p>
+                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="absolute bottom-1 right-1 w-fill hover:animate-pulse hover:scale-110">
+                      <IconButton color="warning" aria-label="launch" component="span">
+                        <LaunchIcon />
+                      </IconButton>
                 </Link>
               </div>
             </div> 
 
-            <div className="card w-64 h-[300px] sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
+            <div className="card lg:h-full lg:w-full hover:backdrop-blur-lg md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
                   <h5 className="card-title">Amateur Radio License</h5>
+                  
                 </div>
                 <p className="card-text mb-16">Callsign: VA2QLF<br/>Delivered by Innovations, Science et development Canada</p>
-                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="btn absolute bottom-2 left-1/4 right-2  w-2/4 text-center hover:animate-pulse hover:scale-110">
-                  Check
+                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="absolute right-1 bottom-1 w-fill hover:animate-pulse hover:scale-110">
+                      <IconButton color="warning" aria-label="launch" component="span">
+                        <LaunchIcon />
+                      </IconButton>
                 </Link>
+                
               </div>
             </div> 
           </div>
@@ -115,10 +125,10 @@ useEffect(() => {
 
     <div ref={ref} className="transition-all duration-500 ease-in-out transform-gpu opacity-0">
 
-        <div className="work flex flex-col mt-10"> 
+        <div className="work flex flex-col mt-10 "> 
           <h1 className="text-2xl font-semibold mb-4">  Work Experience</h1>
 
-          <div className="card w-full hover:backdrop-blur-xl  hover:backdrop-contrast-200 hover:backdrop-opacity-100	 p-2 flex flex-col relative hover:scale-110 hover:z-10 hover:saturate-200  transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
+          <div className="card w-full p-2 flex flex-col relative hover:scale-110   transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
 
             <div className="card-body flex-grow">
               <div className="flex flex-row">
@@ -130,12 +140,12 @@ useEffect(() => {
               </div>
               
               <p className="card-text font-semibold">Cyber Security Operator</p>
-              <p className="card-text indent-4 mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
+              <p className="card-text mt-4">Cyber and numeric operator for the 35 signal unit.<br/>
                                        Participated in the Australian Defense Force CTF.<br/>
-                                       Participated in multiple "Red vs Blue" exercise in conjunction with the 34 sigs.</p>
+                                       Participated in multiple "Red vs Blue" exercise in conjunction with the 34 signal unit.</p>
             </div>
           </div>
-          <div className="card w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
+          <div className="card hover:backdrop-blur-lg  w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "200rem", minHeight:"250px", }}>
 
             <div className="card-body flex-grow">
               <div className="flex flex-row">
@@ -148,7 +158,7 @@ useEffect(() => {
               </div>
               
               <p className="card-text font-semibold">IT Support Technician</p>
-              <p className="card-text indent-8 mt-4">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p>
+              <p className="card-text  mt-4">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts to meet requirements.</p>
             </div>
           </div>
         </div>
@@ -156,12 +166,27 @@ useEffect(() => {
 
       <h1 className="text-2xl font-semibold mb-4 mt-10 transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">Education</h1>
 
-      <div className="education flex flex-col justify-around sm:flex-row transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
+      <div className="education grid md:grid-cols-2 sm:grid-cols-1 md:justify-around sm:flex-row sm:justify-items-center transition-all duration-500 ease-in-out transform-gpu opacity-0 animate-fade-in-down">
 
 
+        <div className="card w-full  p-2  ml-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+            <div className="card-body flex-grow">
+            <div className="flex flex-row">
+            <Image className="rounded-full mr-4 mb-4" alt="UdeS logo" width={50} height={50}  src="/images/uds_logo.png"/>
+              <div className="flex flex-col justify-center">
+              <h5 className="card-title h-3">Universite de Sherbrooke</h5>
+                  <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> Sept 2024 - 2027 </p>
+              </div>
+            </div>
 
+              <p className="card-text text-left font-semibold">Bsc. Computer Science</p>
+              {/* <p className="card-text">On site support technicians for health workers at the CHUS de l'Estrie working on different sites, from hardware to application problems, and updated some of their powershell scripts.</p> */}
+ 
+              </div>
 
-        <div className="card w-full h-1/2 p-2 mr-10 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        </div>
+
+        <div className="card w-full  p-2 ml-2  flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/champlain_logo.jpg"/>
@@ -177,7 +202,7 @@ useEffect(() => {
               </div>
 
         </div>
-        <div className="card w-full h-1/2 p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
+        <div className="card w-full  p-2 ml-2  flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"100px", }}>
             <div className="card-body flex-grow">
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/montcalm_logo.jpg"/>

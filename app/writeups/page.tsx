@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { getHTBPosts } from 'app/db/blog';
+import { Chip } from '@mui/material';
 import { Tags } from 'app/components/tags';
 export const metadata = {
   title: 'Tom\'s Writeups',
@@ -75,12 +76,8 @@ export default function WriteupsPage() {
               {post.metadata.tags &&
                 <div className="flex md:justify-start text-center justify-start align-middle sm:flex-row space-x-[2px] md:space-x-2 lg:right-20">
                   {post.metadata.tags.split(";").map((tag: string) => (
-                  <h1
-                    key={tag}
-                    className="text-sm  bg-neutral-200 dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-12 lg:w-16"
-                  >
-                    {tag}
-                  </h1>
+                  <Chip key={tag} label={tag} size="medium" variant="filled" color="warning" clickable sx={{color: "#f5f6f7"   }}/>
+
                 ))}
             
               </div>}
