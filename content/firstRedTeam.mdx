@@ -1,0 +1,98 @@
+---
+title: 'My First Real Red Team Experience'
+publishedAt: '2025-02-29'
+summary: 'My participation in the Red vs Blue DCM4 cybersecurity competition hosted by the british army.'
+tags: 'cybersec'
+---
+
+
+# My Experience at DCM4
+
+<img src="/images/dcm4.jpg" alt="DCM4"/>
+
+
+## Introduction
+
+The British Army hosted a Red vs Blue cyber competition called Defence Cyber Marvel 4 (DCM4), which is one of the [biggest cyber competition in western europe for NATO](https://www.army.mod.uk/news/global-cyber-competition-secures-and-strengthens-key-relationships/).
+We had to attack 35 blue teams and I was part of the Red Team composed of around 110 operators. My sub team had to attack 3 different blue teams.
+I had a lot of fun and learned a lot about how to attack and pivot inside an actively guarded network.
+I also learned a lot about cobalt strike and was able to carry on the attack instructed to me by the team leader. 
+> Notes: 
+    This blog is from my own perspective and I will not disclose any sensitive information.
+        It is only about what I, personally, accomplished during the competition.
+## Range Diagram
+
+The infrastructure was divided into multiple enclave, each one with different services and different levels of security.
+
+- __Health__: Health Services Enclave with a web portal and HVAC system and an octoprint server. 
+<img src="/images/health_enclave.PNG" alt="Health Enclave"/>
+
+- __BT SOC__: Blue Team Security Operations Center
+<img src="/images/BT_SOC.PNG" alt="Health Enclave"/>
+
+- __GOV__: Workstations and servers hosting different services for the government enclave with a SCADA system using solaris.
+<img src="/images/gov_enclave.PNG" alt="Health Enclave"/>
+
+
+- __MIL__: Workstations and servers hosting different services for the military enclave with a SAT subnet. 
+<img src="/images/mil_enclave.PNG" alt="Health Enclave"/>
+
+- __DEPS__: Workstations and servers hosting different services as well as a UAV subnet for the Secret Deployable enclave.
+<img src="/images/deps_enclave.PNG" alt="Health Enclave"/>
+
+- __DEPO__: Workstations and servers hosting different services for the Official Deployable enclave.
+<img src="/images/depo_enclave.PNG" alt="Health Enclave"/>
+
+## C2 Frameworks used
+
+- Cobalt Strike (C2 Framework SPHINX) 
+- Tuoni (C2 Framework LEVIATHAN)
+
+<img src="/images/UI_CS.PNG" alt="UI Cobalt Strike"/>
+
+
+## The Setup & Attack Campaign
+
+The goal was to carry out missions we had been given by the team leader.  
+We had access to a VPN and a big infrastructure with a lot of tools to help us carry out the attacks.
+We had 2 groups, one called SPHINX and the other LEVIATHAN, using different TTPs and C2 frameworks.
+I was assigned to the SPHINX group using CS. Their main goal was to act as an hacktivist group and disrupt or deface the services of the blue team.
+
+<img src="/images/ISA_DCM4.PNG" alt="Red Team"/>
+
+## The Attack
+
+#### Overview:
+The attacks were separated by day with an increasing aggressivity for our campaign.
+Each day there was a morning and an evening phase with a different set of missions to carry out.
+Here is a summary of the attacks I carried out during the 5 days of the competition.
+#### Day 1:
+- Reconnaissance phase where we had to gather information about the blue team and their services.
+- Accessed the hospital and gov fw.
+- Accessed some systems to create local admin account and domain user onto the health and gov enclave. 
+- Used Cobalt Strike to generate beacons and pivot inside the network.
+
+<img src="/images/CSMailPersistence.png" alt="CS Beacons"/>
+#### Day 2:
+- Health portal defacement
+- Setup some proxy on the health and gov enclave 
+- Non destructive actions on the HVAC system in health enclave 
+- Health data leak 
+#### Day 3:
+- Deface the web portal again.
+- Persistence on FWs on HEALTH, MIL and GOV enclave
+- Destructive attack onto the 3d printers in the health enclave
+- Destructive HVAC attack
+<img src="/images/InitialEntryMail.png" alt="CS Beacons"/>
+#### Day 4 & 5:
+Unfortunately, I was not able to participate in the last 2 days of the competition.
+From what I heard, they wreaked havoc on the blue teams, but they were able to counter us after a bit of time.
+
+
+## Conclusion: 
+
+The blue teams defended very well against our attacks and I was impressed by the level of security they had in place.
+The range was very well designed (and very big) and the red team had a lot of tools at their disposal to carry
+out the attacks. I had a ton of fun and learned a lot during dcm4, I am looking forward to the next edition and hope to be able to participate again.<br/> Sending love from Canada🍁! 
+<br/>
+> __Thanks for reading!__ <br/> - Gaillard Tom

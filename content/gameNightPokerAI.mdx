@@ -1,0 +1,106 @@
+---
+title: 'Creating a poker AI for a UK challenge'
+publishedAt: '2025-02-26'
+summary: 'My participation in the Game Night Poker AI challenge hosted by the British Army.'
+tags: 'dev;python'
+---
+
+# Game Night Poker AI
+
+<img src="/images/UIGameNightPoker.png" alt="GameNightPokerUI"/>
+
+
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Tools and Technologies Used](#tools-and-technologies-used)
+- [The AI Model](#the-ai-model)
+- [The Strategy](#the-strategy)
+   - [The Preflop](#the-preflop)
+   - [The Postflop](#the-postflop)
+- [Results](#results)
+- [Conclusion](#conclusion)
+
+
+## Introduction
+
+The British Army hosted a challenge to create an AI and a strategy that can play poker during a cybersecurity competition. The AI was tested against other AIs created by other players from around the world in a game night, with the winner being awarded a prize of __1500 points__ during the Red vs Blue cyber competition.
+We had less than 2 weeks to develop it and I was a developer for this challenge, working with a team. I had lots of fun and learned a lot about AI and poker in general.
+There was 16 teams in total from all around the world just for this challenge. In this article I will share my experience and the strategies we used to create our AI.
+
+## Tools and Technologies used
+
+- Python
+- Scikit-learn
+- Docker
+- WebSockets for the tests 
+- Git/GitHub for version control and collaboration
+
+## The AI Model
+
+The AI model needed to recognize the best hand we had and, at the same time, recognize the highest hand possible on the table. 
+We used a Decision Tree (DT2) model to predict the best hand and the highest hand possible on the table.
+To process our data, we used the following features that we added to our dataset:
+- __SuitCount__ - The number unique suites in the hand
+- __FullHouse__ - If the hand is a full house
+- __Straight__ - If the hand is a straight
+- __ThreeOfAKind__ - If the hand is a three of a kind
+- __TwoPair__ - If the hand is a two pair
+- __Pair__ - If the hand is a pair
+
+At first we didn't add the fullhouse, the three of a kind and the two pair features, but we saw that our AI was not performing well, so we added them and it improved our hand detection a lot.
+Our AI was able to detect the best hand we had and the highest hand on the table with a high accuracy of around __99.9%__. All that was left was to create a strategy to play the game.
+ 
+
+## The Strategy
+
+Our strategy was to play safe and only bet when we had a good hand. We also tried to bluff sometimes, but it didn't work out that well. The strategy was separated into two logics:
+one for the __preflop__ (before the reveal of the first three cards) and one for the __postflop__ (after the reveal of the first three cards). 
+### The preflop
+My playstyle was mostly passive during the preflop but I was scared of very aggressive player that would just raise a lot of money regardless of their cards.<br/>
+Just like this meme I saw:
+```python
+if self.isMyTurn(): 
+    allin()
+```
+To counter that, We decided to call if we had a high pair or high cards with the same color and to fold if we had nothing.
+We also fold if we are the small blind and we got a bad hand.
+### The postflop
+The postflop logic was to bet if we had a pair or a high card and if the highest hand on the table was not that high.
+We also checked if we raised during the preflop and if we did, we would bet again to try and bluff the opponent.
+At later stages like turn and river, once again if we raised during the preflop we would bet again to try and bluff the opponent. Otherwise we would check and fold if the opponent bet.
+
+
+Here's a little video showing our strategies at work (Nice music too).
+
+<video controls autoPlay loop muted width="100%">
+    <source src="/media/GameNightDuel.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+
+We also ran test games to see how well our AI and strategies were performing.
+A teammate and I created a test that could spin up multiple Docker containers, run games in parallel, and grab the information for the winner using WebSockets, and then calculate a winning percentage based on thousands of games.
+With this test, we were able to see how well our AI was performing and make adjustments to improve it.
+We also saw that our original version was the strongest achieving a __winning percentage of around 73%__ against the AI provided.
+
+<img src="/images/GameNightTest.PNG" onError="this.style.display='none'" alt="Test of strategies"/>
+
+While that was cooking, we also created a bunch of different model being more passive, more aggressive, and so on. We then ran the test again to see which one was the best. We found out that the original version was the best and we decided to stick with it for the submission.
+## Results
+
+Our AI performed well in the competition, achieving __2nd place__.
+- Our first duel was against a Taiwanese team which we could not see as it was before the showcase, but we won! We were very happy about that as we would be able to see our AI play in the showcacse.
+- In the Quarter-finals, we played against 11 Signal Regiment, we won but it was a very tight game.
+- In the semi-final, we played against Team India, they were actually very aggressive and they would raise a lots of money regardless of their cards. We were able to counter with our preflop strategy and win the game by calling with a pair of queens.
+- In the final, we played against Japan Self Defence Forces, but lost. They had a very interesting check to see whether they had more than 107000$ and could just fold until the end of the game.
+
+
+## Conclusion
+
+Participating in the Game Night Poker AI challenge was a rewarding experience. It provided valuable insights into AI and python development. Working with a team and overcoming challenges together made the experience even more memorable. We look forward to participating in similar challenges in the future and adapt our strategies with our findings.
+You can also check out the source code and everything we did on our [GitHub repository](https://github.com/gaillardtom/GameNightPokerAI).
+
+
+> __Thanks For Reading!__ <br/> - Gaillard Tom
