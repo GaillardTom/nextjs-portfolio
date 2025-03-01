@@ -5,12 +5,15 @@ import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
 import { Footer } from 'app/components/footer';
 import { Tags } from 'app/components/tags';
+import { Chip } from '@mui/material';
+import { styled } from "@mui/material/styles";
 
 export const metadata = {
   title: 'Tom\'s Blog',
   description: 'Read my thoughts on software development, cybersecurity, and more.',
   tags: 'blog; software; cybersecurity; design',
 };
+
 function countTags(posts) {
   const tagCounts = {};
 
@@ -67,12 +70,9 @@ export default function BlogPage() {
           {post.metadata.tags &&
                 <div className="flex md:flex-row space-x-2 items-end content-end">
                   {post.metadata.tags.split(";").map((tag: string) => (
-                    <h1
-                      key={tag}
-                      className="flex justify-center text-sm bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 px-2 py-1 rounded-lg w-full"
-                    >
-                      {tag}
-                    </h1>
+
+                    <Chip key={tag} label={tag} size="medium" variant="filled" color="warning" clickable sx={{color: "#f5f6f7"   }}/>
+
                   ))}
               
             </div>}

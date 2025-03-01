@@ -31,7 +31,7 @@ export function Tags({tagsDict, redirect, selectedTag}) {
         >
               <div className="flex flex-row text-center">
          <h2 className='ml-2 text-center align-middle justify-center mr-1 font-semibold'>{tag}</h2> 
-         <h2 className=" text-yellow-600 text-md font-semibold italic text-center">[{count?.toString()}]</h2>
+         <h2 className=" text-orange-500 text-md font-semibold italic text-center">[{count?.toString()}]</h2>
               </div>
      
         </Link>
