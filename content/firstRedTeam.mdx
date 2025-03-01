@@ -6,30 +6,42 @@ tags: 'cybersec'
 ---
 
 
-# My Experience in a Red Team
+# My Experience at DCM4
+
+<img src="/images/DCM4.jpg" alt="DCM4"/>
+
 
 ## Introduction
 
-The British Army hosted a Red vs Blue cyber competition called DCM4, which is one of the biggest cyber competition in western europe for NATO.
+The British Army hosted a Red vs Blue cyber competition called Defence Cyber Marvel 4 (DCM4), which is one of the [biggest cyber competition in western europe for NATO](https://www.army.mod.uk/news/global-cyber-competition-secures-and-strengthens-key-relationships/).
 We had to attack 35 blue teams and I was part of the Red Team composed of around 110 operators. My sub team had to attack 3 different blue teams.
 I had a lot of fun and learned a lot about how to attack and pivot inside an actively guarded network.
 I also learned a lot about cobalt strike and was able to carry on the attack instructed to me by the team leader. 
-
+> Notes: 
+    This blog is from my own perspective and I will not disclose any sensitive information.
+        It is only about what I, personally, accomplished during the competition.
 ## Range Diagram
 
 The infrastructure was divided into multiple enclave, each one with different services and different levels of security.
 
 - __Health__: Health Services Enclave with a web portal and HVAC system and an octoprint server. 
+<img src="/images/health_enclave.PNG" alt="Health Enclave"/>
 
 - __BT SOC__: Blue Team Security Operations Center
+<img src="/images/BT_SOC.PNG" alt="Health Enclave"/>
 
 - __GOV__: Workstations and servers hosting different services for the government enclave with a SCADA system using solaris.
+<img src="/images/gov_enclave.PNG" alt="Health Enclave"/>
+
 
 - __MIL__: Workstations and servers hosting different services for the military enclave with a SAT subnet. 
+<img src="/images/mil_enclave.PNG" alt="Health Enclave"/>
 
 - __DEPS__: Workstations and servers hosting different services as well as a UAV subnet for the Secret Deployable enclave.
+<img src="/images/deps_enclave.PNG" alt="Health Enclave"/>
 
 - __DEPO__: Workstations and servers hosting different services for the Official Deployable enclave.
+<img src="/images/depo_enclave.PNG" alt="Health Enclave"/>
 
 ## C2 Frameworks used
 
@@ -60,6 +72,7 @@ Here is a summary of the attacks I carried out during the 5 days of the competit
 - Accessed some systems to create local admin account and domain user onto the health and gov enclave. 
 - Used Cobalt Strike to generate beacons and pivot inside the network.
 
+<img src="/images/CSMailPersistence.png" alt="CS Beacons"/>
 #### Day 2:
 - Health portal defacement
 - Setup some proxy on the health and gov enclave 
@@ -70,16 +83,16 @@ Here is a summary of the attacks I carried out during the 5 days of the competit
 - Persistence on FWs on HEALTH, MIL and GOV enclave
 - Destructive attack onto the 3d printers in the health enclave
 - Destructive HVAC attack
-#### Day 4 & Day 5:
-
+<img src="/images/InitialEntryMail.png" alt="CS Beacons"/>
+#### Day 4 & 5:
 Unfortunately, I was not able to participate in the last 2 days of the competition.
-But from what I heard, they wreaked havoc on the blue teams, but they were able to counter us after a bit of time.
+From what I heard, they wreaked havoc on the blue teams, but they were able to counter us after a bit of time.
 
 
 ## Conclusion: 
 
 The blue teams defended very well against our attacks and I was impressed by the level of security they had in place.
 The range was very well designed (and very big) and the red team had a lot of tools at their disposal to carry
-out the attacks. I had a ton of fun and learned a lot during dcm4, I am looking forward to the next edition and hope to be able to participate again.
+out the attacks. I had a ton of fun and learned a lot during dcm4, I am looking forward to the next edition and hope to be able to participate again.<br/> Sending love from Canada🍁! 
 <br/>
 > __Thanks for reading!__ <br/> - Gaillard Tom
