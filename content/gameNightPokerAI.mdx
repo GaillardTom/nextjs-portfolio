@@ -1,6 +1,6 @@
 ---
 title: 'Creating a poker AI for a UK challenge'
-publishedAt: '2025-02-23'
+publishedAt: '2025-02-26'
 summary: 'My participation in the Game Night Poker AI challenge hosted by the British Army.'
 tags: 'dev;python'
 ---
@@ -8,6 +8,20 @@ tags: 'dev;python'
 # Game Night Poker AI
 
 <img src="/images/UIGameNightPoker.png" alt="GameNightPokerUI"/>
+
+
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Tools and Technologies Used](#tools-and-technologies-used)
+- [The AI Model](#the-ai-model)
+- [The Strategy](#the-strategy)
+   - [The Preflop](#the-preflop)
+   - [The Postflop](#the-postflop)
+- [Results](#results)
+- [Conclusion](#conclusion)
+
 
 ## Introduction
 
@@ -36,14 +50,29 @@ To process our data, we used the following features that we added to our dataset
 - __Pair__ - If the hand is a pair
 
 At first we didn't add the fullhouse, the three of a kind and the two pair features, but we saw that our AI was not performing well, so we added them and it improved our hand detection a lot.
-Our AI was able to detect the best hand we had and the highest hand on the table with a high accuracy. All that was left was to create a strategy to play the game.
+Our AI was able to detect the best hand we had and the highest hand on the table with a high accuracy of around __99.9%__. All that was left was to create a strategy to play the game.
  
 
 ## The Strategy
 
 Our strategy was to play safe and only bet when we had a good hand. We also tried to bluff sometimes, but it didn't work out that well. The strategy was separated into two logics:
-one for the __preflop__ (before the reveal of the first three cards) and one for the __postflop__ (after the reveal of the first three cards). The preflop logic was to only bet if we had a pair or a high card.
-The postflop logic was to bet if we had a pair or a high card and if the highest hand on the table was not that high here's a little video showing our strategies at work (Nice music too).
+one for the __preflop__ (before the reveal of the first three cards) and one for the __postflop__ (after the reveal of the first three cards). 
+### The preflop
+My playstyle was mostly passive during the preflop but I was scared of very aggressive player that would just raise a lot of money regardless of their cards.<br/>
+Just like this meme I saw:
+```python
+if self.isMyTurn(): 
+    allin()
+```
+To counter that, We decided to call if we had a high pair or high cards with the same color and to fold if we had nothing.
+We also fold if we are the small blind and we got a bad hand.
+### The postflop
+The postflop logic was to bet if we had a pair or a high card and if the highest hand on the table was not that high.
+We also checked if we raised during the preflop and if we did, we would bet again to try and bluff the opponent.
+At later stages like turn and river, once again if we raised during the preflop we would bet again to try and bluff the opponent. Otherwise we would check and fold if the opponent bet.
+
+
+Here's a little video showing our strategies at work (Nice music too).
 
 <video controls>
     <source src="/media/GameNightDuel.mp4" type="video/mp4" />
@@ -52,7 +81,7 @@ The postflop logic was to bet if we had a pair or a high card and if the highest
 
 
 We also ran test games to see how well our AI and strategies were performing.
-A teammate and I created a test that could spin up multiple Docker containers and run games in parallel, grab the information for the winner using WebSockets, and then calculate a winning percentage based on thousands of games.
+A teammate and I created a test that could spin up multiple Docker containers, run games in parallel, and grab the information for the winner using WebSockets, and then calculate a winning percentage based on thousands of games.
 With this test, we were able to see how well our AI was performing and make adjustments to improve it.
 We also saw that our original version was the strongest achieving a __winning percentage of around 73%__ against the AI provided.
 
@@ -61,7 +90,14 @@ We also saw that our original version was the strongest achieving a __winning pe
 While that was cooking, we also created a bunch of different model being more passive, more aggressive, and so on. We then ran the test again to see which one was the best. We found out that the original version was the best and we decided to stick with it for the submission.
 ## Results
 
-Our AI performed well in the competition, achieving a __winning percentage of X%__. We learned a lot from this experience and are excited to apply these learnings to future projects.
+Our AI performed well in the competition, achieving __2nd place__.
+- Our first duel was against Taiwan which we could not see as it was before the showcase, but we won it! We were very happy about that as we would be able to see our AI play in the showcacse.
+- In the Quarter-finals, we played against 11 Signal Regiment from the US, we won but it was a very tight game.
+- In the semi-final, we played against Team India, they were actually very aggressive and they would raise a lots of money regardless of their cards. We were able to counter with our preflop strategy and win the game by calling with a pair of queens.
+- In the final, we played against Team Japan, but lost. They had a very interesting check to see whether they had more than 107000$ and could just fold until the end of the game.
+
+We learned a lot from this experience and are excited to apply these learnings to future projects.
+
 
 ## Conclusion
 
