@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Bubble from './bubble';
 import React, { useEffect, useRef } from 'react';
 import Fade from 'react-reveal/Fade';
+import LaunchIcon from '@mui/icons-material/Launch';
+import { IconButton } from '@mui/material';
+
 export default function Page() {
 
   const ref = useRef(null);
@@ -85,29 +88,36 @@ useEffect(() => {
             Certifications
           </h1>
           <div className="flex flex-wrap justify-around flex-row">
-            <div className="card hover:backdrop-blur-lg lg:w-full lg:h-[200px] md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
+            <div className="card lg:h-full hover:backdrop-blur-lg lg:w-full md:w-64 md:h-full sm:h-auto sm:w-full p-2 flex flex-col relative hover:scale-110 transition ease-linear duration-300" style={{ maxWidth: "20rem", minHeight:"250px", }}>
               <div className="card-body flex-grow	">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="aws logo" width={50} height={50} src="/aws_logo.jpg"/>
                   <h5 className="card-title">AWS Cloud Practitioner Essentials</h5>
+                  
                 </div>
                 <p className="card-text">Validates foundational, high-level understanding of AWS Cloud, services, and terminology.<br/></p>
-                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="btn absolute bottom-2 left-1/4 right-2 w-2/4 text-center hover:scale-110 hover:animate-pulse">
-                  Check
+                <Link href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9BJEVP828M4E1355" target="_blank" className="absolute bottom-1 right-1 w-fill hover:animate-pulse hover:scale-110">
+                      <IconButton color="warning" aria-label="launch" component="span">
+                        <LaunchIcon />
+                      </IconButton>
                 </Link>
               </div>
             </div> 
 
-            <div className="card lg:w-full hover:backdrop-blur-lg md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
+            <div className="card lg:h-full lg:w-full hover:backdrop-blur-lg md:w-64 md:h-full sm:h-auto sm:w-full mb-5 p-2 flex flex-col relative transition ease-linear duration-300 hover:scale-110" style={{ maxWidth: "20rem" }}>
               <div className="card-body flex-grow">
                 <div className="flex flex-row">
                   <Image className="rounded-lg mr-4 mb-4" alt="Canadian flag" width={50} height={50} src="/canada.jpg"/>
                   <h5 className="card-title">Amateur Radio License</h5>
+                  
                 </div>
                 <p className="card-text mb-16">Callsign: VA2QLF<br/>Delivered by Innovations, Science et development Canada</p>
-                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="btn absolute bottom-2 left-1/4 right-2  w-2/4 text-center hover:animate-pulse hover:scale-110">
-                  Check
+                <Link href="https://apc-cap.ic.gc.ca/pls/apc_anon/query_amat_cs$.startup" target="_blank" className="absolute right-1 bottom-1 w-fill hover:animate-pulse hover:scale-110">
+                      <IconButton color="warning" aria-label="launch" component="span">
+                        <LaunchIcon />
+                      </IconButton>
                 </Link>
+                
               </div>
             </div> 
           </div>
