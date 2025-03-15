@@ -1,0 +1,210 @@
+---
+title: 'How to handle GitHub leaks and .env files'
+publishedAt: '2025-03-16'
+summary: 'How to safely remove files from Git history and best practices for handling .env files.'
+tags: 'guide;dev'
+---
+
+
+
+# Guide to Removing Secrets from Git History and Handling .env Files
+
+This guide covers two primary methods for permanently removing files from Git history: using BFG Repo-Cleaner and git-filter-repo. Both methods have their own benefits and considerations. It is important to follow safety precautions as these operations rewrite history, which can affect collaborators.
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Safety Considerations](#safety-considerations)
+3. [Using BFG Repo-Cleaner](#using-bfg-repo-cleaner)
+   - [Installation](#installation)
+   - [Removing Files](#removing-files)
+   - [Pushing Changes](#pushing-changes)
+4. [Using git-filter-repo](#using-git-filter-repo)
+   - [Installation](#installation-1)
+   - [Removing Files](#removing-files-1)
+   - [Pushing Changes](#pushing-changes-1)
+5. [Best Practices for .env Files](#best-practices-for-env-files)
+   - [.env Files](#env-files)
+   - [Ignoring .env Files](#ignoring-env-files)
+   - [Loading .env Files](#loading-env-files)
+6. [Conclusion](#conclusion)
+
+## Introduction
+
+Sometimes, sensitive files or large binaries accidentally get committed to a Git repository. Simply deleting them in a new commit won't remove them from the repository's history. This guide shows how to completely remove such files from the history.
+
+## Safety Considerations
+
+- **Backup:** Always create a backup of your repository before performing history rewrites.
+- **Communication:** Inform your team about the changes because everyone will need to re-clone the repository after history has been rewritten.
+- **Testing:** Clone your repository and test the changes in a separate environment before pushing to the main repository.
+
+## Using BFG Repo-Cleaner
+
+BFG Repo-Cleaner is a simpler and faster alternative to git-filter-branch for removing unwanted data from Git repositories.
+
+### Installation
+
+1. Download the BFG jar file from the [official website](https://rtyley.github.io/bfg-repo-cleaner/).
+2. Place the jar file in a directory included in your PATH or reference it directly.
+
+### Removing Files
+
+1. **Clone the repository (mirror):**
+   ```sh
+   git clone --mirror https://github.com/your-repo.git
+   cd your-repo.git
+   ```
+
+2. **Run BFG Repo-Cleaner:**
+   ```sh
+   java -jar bfg.jar --delete-files your-file.ext
+   ```
+
+   To remove files matching a pattern:
+   ```sh
+   java -jar bfg.jar --delete-files '*.ext'
+   ```
+
+3. **Clean up and remove unwanted data:**
+   ```sh
+   git reflog expire --expire=now --all && git gc --prune=now --aggressive
+   ```
+
+### Pushing Changes
+
+1. **Push the changes to the remote repository:**
+   ```sh
+   git push --force
+   ```
+
+## Using git-filter-repo
+
+git-filter-repo is a powerful tool from the Git project for rewriting Git history.
+
+### Installation
+
+1. **Install git-filter-repo:**
+   ```sh
+   pip install git-filter-repo
+   ```
+
+### Removing Files
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-repo.git
+   cd your-repo
+   ```
+
+2. **Run git-filter-repo to remove files:**
+   ```sh
+   git filter-repo --path your-file.ext --invert-paths
+   ```
+
+   To remove files matching a pattern:
+   ```sh
+   git filter-repo --path-glob '*.ext' --invert-paths
+   ```
+
+### Pushing Changes
+
+1. **Push the changes to the remote repository:**
+   ```sh
+   git push --force
+   ```
+
+## Best Practices for .env Files
+
+### .env Files
+
+`.env` files are used to store environment variables for applications. They are typically not committed to the repository to avoid exposing sensitive information.
+
+Example of a .env file (you would put the actual values in your local copy):
+```plaintext
+# Database configuration
+DB_HOST=localhost
+DB_USER=username
+DB_PASS=password
+DB_NAME=database_name
+
+# API keys
+API_KEY=your_api_key_here
+```
+
+
+### Ignoring .env Files
+
+Environment variables often contain sensitive information like API keys, database credentials, and other configuration details. To prevent these from being pushed to the repository:
+
+1. **Create a `.gitignore` file (if it doesn't exist):**
+   ```sh
+   touch .gitignore
+   ```
+
+2. **Add `.env` to `.gitignore`:**
+   ```plaintext
+   # .gitignore
+   .env
+   ```
+
+3. **Remove any tracked `.env` files:**
+   If the `.env` file has already been committed, you need to remove it from the repository:
+   ```sh
+   git rm --cached .env
+   git commit -m "Remove .env file from repository"
+   git push
+   ```
+
+### Loading .env Files
+
+To load `.env` files into your application, use a library that reads environment variables from a `.env` file and sets them in the environment. Here are examples for popular programming languages:
+
+1. **Node.js (using `dotenv`):**
+   ```sh
+   npm install dotenv
+   ```
+
+   In your entry file (e.g., `app.js`):
+   ```javascript
+   require('dotenv').config();
+
+   // Access variables
+   console.log(process.env.MY_SECRET);
+   ```
+
+2. **Python (using `python-dotenv`):**
+   ```sh
+   pip install python-dotenv
+   ```
+
+   In your script:
+   ```python
+   from dotenv import load_dotenv
+   import os
+
+   load_dotenv()
+
+   # Access variables
+   secret = os.getenv("MY_SECRET")
+   print(secret)
+   ```
+
+3. **Ruby (using `dotenv`):**
+   ```sh
+   gem install dotenv
+   ```
+
+   In your script:
+   ```ruby
+   require 'dotenv/load'
+
+   # Access variables
+   secret = ENV['MY_SECRET']
+   puts secret
+   ```
+
+## Conclusion
+
+Removing files from Git history is a powerful operation that should be done with care. Whether you choose BFG Repo-Cleaner or git-filter-repo, make sure to follow the safety considerations to avoid disrupting your workflow. Always backup your repository and communicate with your team before pushing the rewritten history to the remote repository.
+
+Additionally, handling `.env` files properly by ignoring them in Git and loading them securely in your application ensures that sensitive information is protected.
