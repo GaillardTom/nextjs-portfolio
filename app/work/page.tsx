@@ -19,7 +19,6 @@ export default function Page() {
      link: 'https://orientation-site.vercel.app/',
      source: 'https://github.com/GaillardTom/OrientationSite'},
      {title:'MakeUoT2022 Hackathon', description: 'First Hackathon ever! First time experiencing with RPI\'s GPIO. Project made in 36h to throw back a ball and count the number of times you put it in the net ', image: '/MakeUoT2022.jpg', link: 'https://devpost.com/software/makeuoftproject2022', source: 'https://github.com/GaillardTom/MakeUofTProject2022'},
-     {title: 'My Portfolio', description: 'This website! Made with Next.js, TailwindCSS, and deployed on Vercel', link:'https://tom-gaillard.vercel.app/', image: '/portfolio.jpg', source: 'https://github.com/GaillardTom/nextjs-portfolio'},
      {title:'Epic Universe Online', description: 'Webapp that gets the RSS feed from NASA and displays it. First site deployed with vercel and first time using next.js!', image: '/epicUniverse.jpg', source: 'https://github.com/GaillardTom/EpicUniverseOnline', link:'https://www.epicuniverseonline.com/'},
     // ...
   ];

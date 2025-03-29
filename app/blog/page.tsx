@@ -68,7 +68,7 @@ export default function BlogPage() {
 
           
           {post.metadata.tags &&
-                <div className="flex md:flex-row space-x-2 items-end content-end">
+                <div className="flex md:flex-row space-x-2 items-end content-end md:mr-16">
                   {post.metadata.tags.split(";").map((tag: string) => (
 
                     <Chip key={tag} label={tag} size="medium" variant="filled" color="warning" clickable sx={{color: "#f5f6f7"   }}/>
