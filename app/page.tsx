@@ -53,20 +53,12 @@ useEffect(() => {
         <Bubble image="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" />
         <Bubble image="https://cdn-icons-png.flaticon.com/512/5968/5968242.png " />
         <Bubble image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vhv.rs%2Fdpng%2Fd%2F543-5438423_mysql-logo-hd-png-download.png&f=1&nofb=1&ipt=32784e9cf4beb61c6b349689fadadeb76435b3ca11a589d45cafd27772bc4200&ipo=images" />
-
         <Bubble image="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/48x48.png" />
         <Bubble image="https://img.icons8.com/?size=256&id=cdYUlRaag9G9&format=png" />
-
         <Bubble image="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/001/817/180/datas/medium.png" />
-
         <Bubble image="/logo-htb.svg" />
-
-        {/* <Bubble image="https://linuxhint.com/wp-content/uploads/2020/06/1-10.png" /> */}
-
         <Bubble image="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" />
-
         <Bubble image="https://img.icons8.com/?size=256&id=FwaVI1qCE7hQ&format=png" />
-      {/* Add more bubbles as needed */}
       </div>
       <div className="flex flex-row sm:justify-between">
         <div className="flex flex-col ">
@@ -174,7 +166,7 @@ useEffect(() => {
             <div className="flex flex-row">
             <Image className="rounded-full mr-4 mb-4" alt="UdeS logo" width={50} height={50}  src="/images/uds_logo.png"/>
               <div className="flex flex-col justify-center">
-              <h5 className="card-title h-3">Universite de Sherbrooke</h5>
+              <h5 className="card-title h-3 text-nowrap">Universite de Sherbrooke</h5>
                   <p className="text-md prose prose-neutral  dark:prose-invert mt-0 font-semibold justify-center text-left"> Sept 2024 - 2027 </p>
               </div>
             </div>

@@ -155,7 +155,9 @@ table {
   font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 10px;
-
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
   justify-content: center;
 }
 

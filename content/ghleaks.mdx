@@ -1,0 +1,70 @@
+---
+title: 'Identifying and Reporting Exposed MongoDB Connection Strings'
+publishedAt: '2025-03-15'
+summary: 'How I created a Python script to detect exposed MongoDB connection strings and responsibly disclosed them via GitHub issues.'
+tags: 'cybersec;mongoDB'
+---
+
+# Exposed MongoDB Connection Strings
+
+<img src="/images/cybersec/final_issues_GH.PNG" alt="GHLeaks"/>
+
+## Introduction
+
+Exposing sensitive information like MongoDB connection strings in public repositories can lead to severe security risks, including unauthorized database access. In this blog post, I’ll walk you through how I created a Python script to detect exposed MongoDB connection strings in public GitHub repositories and responsibly disclosed them by raising issues.
+
+## The Problem
+
+MongoDB connection strings often include sensitive credentials such as usernames, passwords, and database hosts. If these strings are accidentally committed to a public repository, attackers can exploit them to gain unauthorized access to databases, leading to data breaches or service disruptions.
+
+## The Solution
+
+To address this issue, I developed a Python script that:
+
+1. Searches public GitHub repositories for exposed MongoDB connection strings.
+2. Validates the connection strings to ensure they are real.
+3. Automatically raises issues in the affected repositories to notify the owners.
+
+## Tools and Libraries Used
+
+- **Python**: For scripting and automation.
+- **GitHub API**: To search repositories and raise issues programmatically.
+- **Regex**: To identify MongoDB connection strings in code.
+- **PyMongo**: To validate the connection strings.
+- **dotenv**: To securely manage API keys and credentials.
+
+## Implementation
+
+Here’s a high-level overview of how the script works:
+
+### 1. Searching for Exposed Strings
+
+Using the GitHub API, the script searches for repositories containing potential MongoDB connection strings. A regex pattern is used to identify strings that match the typical format of a MongoDB URI.
+
+### 2. Connecting to the Clusters
+
+Once potential MongoDB connection strings are identified, the script uses the **PyMongo** library to attempt a connection. This step ensures that the identified strings are valid and correspond to actual MongoDB clusters. Invalid or fake strings are discarded to avoid false positives.
+
+### 3. Raising Issues on GitHub
+
+For each valid connection string, the script programmatically raises an issue in the corresponding GitHub repository using the **GitHub API**. The issue includes a detailed explanation of the problem, the risks associated with exposed credentials, and recommendations for securing the repository. This step ensures that repository owners are promptly notified and can take corrective action.
+
+### 4. Responsible Disclosure
+
+To maintain ethical standards, the script follows a responsible disclosure process. It avoids publicly exposing sensitive information and ensures that only repository owners are informed about the issue. Additionally, the script includes a disclaimer encouraging repository owners to rotate their credentials immediately and implement best practices for securing sensitive data.
+
+## Challenges Faced
+
+Developing this script came with its own set of challenges:
+
+- **Rate Limits**: The GitHub API imposes rate limits, which required implementing efficient search queries and handling API responses gracefully.
+- **False Positives**: Crafting a regex pattern that minimizes false positives while capturing all valid MongoDB URIs was a delicate balance.
+- **Ethical Considerations**: Ensuring that the script adhered to responsible disclosure practices was critical to avoid causing harm or violating GitHub's terms of service.
+
+## Results
+
+The script successfully identified and reported multiple exposed MongoDB connection strings in public repositories. Many repository owners responded positively, thanking me for the notification and taking immediate action to secure their credentials. This experience highlighted the importance of proactive security measures and the role of ethical hacking in safeguarding sensitive information.
+
+## Conclusion
+
+Exposing sensitive credentials like MongoDB connection strings in public repositories is a common yet preventable security risk. By leveraging tools like Python, the GitHub API, and regex, I was able to create a script that not only detects these vulnerabilities but also helps repository owners address them responsibly. This project reinforced the importance of secure coding practices and the value of contributing to a safer digital ecosystem.

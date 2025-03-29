@@ -62,7 +62,7 @@ export default function BlogPage({params}) {
         .map((post) => (
           <Link
             key={post.slug}
-            className="wave-effect flex flex-col space-y-1 mb-3 rounded-lg  w-full h-16 px-3 py-2 hover:translate-y-1 transition-all duration-200 ease-in-out "
+            className="wave-effect flex flex-col space-y-1 mb-3 rounded-lg  w-full px-3 py-2 hover:translate-y-1 transition-all duration-200 ease-in-out "
             href={`/blog/${post.slug}`}
           >
           <div className="rounded-lg flex flex-row justify-between  mt-3 items-center content-center">
